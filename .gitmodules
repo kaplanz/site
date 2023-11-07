@@ -1,0 +1,3 @@
+[submodule "themes/wallace"]
+	path = themes/wallace
+	url = https://github.com/kaplanz/wallace
