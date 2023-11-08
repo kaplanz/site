@@ -1,7 +1,7 @@
 ---
+title: Game Boy
 date: 2022-07-15
 template: link.html
-title: Game Boy
 extra:
   redirect: "https://github.com/kaplanz/gameboy"
 ---

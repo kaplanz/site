@@ -1,7 +1,7 @@
 ---
+title: Dynasty
 date: 2023-11-07
 template: link.html
-title: Dynasty
 extra:
   redirect: "/dynasty"
 ---

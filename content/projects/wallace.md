@@ -1,7 +1,7 @@
 ---
+title: Wallace
 date: 2022-02-15
 template: link.html
-title: Wallace
 extra:
   redirect: "/wallace"
 ---

@@ -1,8 +1,8 @@
 ---
-paginate_by: 10
+title: Projects
 sort_by: title
 template: blog.html
-title: Projects
+paginate_by: 10
 ---
 
 I update the listings here every so often, but for the most up-to-date info on
