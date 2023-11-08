@@ -1,6 +1,6 @@
 ---
 paginate_by: 10
-sort_by: date
+sort_by: title
 template: blog.html
 title: Projects
 ---
