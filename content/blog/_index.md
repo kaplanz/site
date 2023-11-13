@@ -1,9 +1,9 @@
 ---
-title: Projects
-sort_by: title
+title: Blog
+sort_by: date
 template: blog.html
 paginate_by: 10
-weight: 3
+weight: 2
 ---
 
 I update the listings here every so often, but for the most up-to-date info on
