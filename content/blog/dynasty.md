@@ -59,7 +59,7 @@ wasn't a nightmare to configure. Since DDNS isn't exactly rocket science
 
 This is probably a good time to come clean: as I use Cloudflare for all my
 self-hosted DNS records for Internetz stuff, that's the only provider I added
-support for. *But**, I wanted it to be easy to add support later on for other
+support for. *But*, I wanted it to be easy to add support later on for other
 DNS providers, so Dynasty is written in a provider-agnostic way. I also tried
 to use Rust idioms all the other cool kids use these days.
 
