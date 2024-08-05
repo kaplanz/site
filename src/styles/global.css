@@ -1,0 +1,157 @@
+/* Color */
+@import "open-color";
+
+/* Fonts */
+@import "@fontsource/fira-code";
+@import "@fontsource/noto-sans";
+@import "@fontsource/noto-serif";
+
+/* Reset */
+@import "normalize.css";
+
+:root {
+  color-scheme: light dark;
+}
+
+@media (min-width: 640px) {
+  main,
+  nav {
+    width: 100%;
+  }
+
+  nav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+}
+
+@media (min-width: 768px) {
+  main,
+  nav {
+    display: inherit;
+  }
+}
+
+@media (min-width: 1024px) {
+  main,
+  nav {
+    width: 768px;
+  }
+}
+
+@media (min-width: 1280px) {
+  main,
+  nav {
+    width: 1024px;
+  }
+}
+
+@media (min-width: 1536px) {
+  main,
+  nav {
+    width: 1280px;
+  }
+}
+
+main,
+nav {
+  transition: all .3s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+    /* Optional, if you also want font styles */
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
+  }
+}
+
+html {
+  background-color: light-dark(var(--oc-gray-0), var(--oc-gray-9));
+}
+
+body {
+  font-family: "Noto Sans", sans-serif;
+  color: light-dark(var(--oc-gray-8), var(--oc-gray-3));
+}
+
+main {
+  margin: auto;
+  max-width: calc(100% - 2em);
+  padding: 1em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Noto Serif", serif;
+  line-height: 1.2;
+  margin: 0 0 0.5rem 0;
+}
+
+a {
+  color: light-dark(var(--oc-cyan-9), var(--oc-cyan-5));
+
+  &:hover {
+    color: light-dark(var(--oc-cyan-7), var(--oc-cyan-3));
+  }
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+textarea {
+  width: 100%;
+  font-size: 16px;
+}
+
+input {
+  font-size: 16px;
+}
+
+table {
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+code {
+  padding: 2px 5px;
+  background-color: rgb(var(--gray-light));
+  font-family: "Fira Code", monospace !important;
+  border-radius: 2px;
+}
+
+pre {
+  padding: 1.5em;
+  border-radius: 8px;
+}
+
+pre>code {
+  all: unset;
+}
+
+blockquote {
+  border-left: 4px solid var(--accent);
+  font-size: 1.333em;
+  margin: 0px;
+  padding: 0 0 0 20px;
+}
+
+hr {
+  border-top: 1px solid rgb(var(--gray-light));
+  border: none;
+}

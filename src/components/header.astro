@@ -1,0 +1,105 @@
+---
+import { icons } from "../apache.js";
+
+import Nav from "./nav.astro";
+
+// Construct hierarchy from a list of pages
+function hierarchy(pages) {
+  let root = {};
+
+  // Iterate over pages
+  pages.forEach((page) => {
+    // Handle subdirectories
+    let tier = root;
+    const parts = page.link
+      // split path by parts
+      .split("/")
+      // filter out empty parts
+      .filter(Boolean);
+
+    // Construct hierarchy
+    parts.forEach((part, index) => {
+      // If at last part, must be a page
+      if (index === parts.length - 1) {
+        tier[part] = page;
+      }
+      // Otherwise, it's a directory
+      else {
+        tier[part] ??= {};
+        // Overwrite icon
+        tier[part].icon ??= {};
+        tier[part].icon.idle = "folder";
+        tier[part].icon.peek = "folder.open";
+        // Initialize hierarchy
+        tier[part].hier ??= {};
+        // Descend into directory
+        tier = tier[part].hier;
+      }
+    });
+  });
+
+  return root;
+}
+
+// Declare a list of all pages
+let pages = [];
+// Add rendered pages
+pages.push(
+  ...(await Astro.glob("/src/pages/**/*.md")).map((page) => {
+    return {
+      name: page.url.split("/").pop(),
+      link: page.url,
+      icon: {
+        idle: "layout",
+        peek: "index",
+      },
+    };
+  }),
+);
+// // Add static pages
+// pages.push(
+//   ...(await Astro.glob("/www/**/*.pdf")).map((page) => {
+//     const path = page.default.slice(4);
+//     return {
+//       name: path.split("/").pop(),
+//       link: path,
+//       icon: {
+//         idle: icons[path.split(".").pop()],
+//         peek: "index",
+//       },
+//     };
+//   }),
+// );
+
+const root = {
+  "/": {
+    name: "~/",
+    link: "/",
+    icon: {
+      idle: "comp.gray",
+      peek: "comp.blue",
+    },
+  },
+  ...hierarchy(pages),
+};
+---
+
+<header>
+  <nav>
+    <Nav hier={root}/>
+  </nav>
+</header>
+
+<style>
+  header {
+    align-items: center;
+    background-color: light-dark(var(--oc-gray-2), var(--oc-gray-8));
+    display: flex;
+    justify-content: space-between;
+    padding: .5em;
+  }
+
+  nav {
+    margin: auto;
+  }
+</style>
