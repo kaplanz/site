@@ -1,7 +1,8 @@
 {
   "name": "site",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "workspaces": ["pkg/*"],
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -13,7 +14,16 @@
     "check": "biome check --write ."
   },
   "dependencies": {
-    "@biomejs/biome": "^1.8.3",
-    "astro": "^4.12.2"
+    "@astrojs/rss": "^4.0.9",
+    "@astrojs/sitemap": "^3.2.1",
+    "@astropub/md": "^1.0.0",
+    "@biomejs/biome": "^1.9.4",
+    "@fontsource-variable/fira-code": "^5.1.0",
+    "@fontsource-variable/rubik": "^5.1.0",
+    "@fontsource-variable/vollkorn": "^5.1.1",
+    "astro": "5.0.0-beta.5",
+    "normalize.css": "^8.0.1",
+    "open-color": "^1.9.1",
+    "sanitize-html": "^2.13.1"
   }
 }

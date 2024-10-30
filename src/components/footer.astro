@@ -1,0 +1,36 @@
+---
+import { owner, media } from "../consts";
+---
+
+<footer>
+  <ul>
+    {Object.entries(media).map(([key, val]) => (
+      <li>
+        <a target="_blank" href={val.link}>
+          <i class={ val.icon ?? "fa-solid fa-link" }></i>
+        </a>
+      </li>
+    ))}
+  </ul>
+  <small>&copy; {new Date().getFullYear()} {owner}</small>
+</footer>
+
+<style>
+  footer {
+    background-color: light-dark(var(--oc-gray-2), var(--oc-gray-8));
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+    text-align: center;
+  }
+
+  ul {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+</style>
