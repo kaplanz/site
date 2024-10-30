@@ -3,6 +3,7 @@ import { defineConfig } from "astro/config";
 import markdown from "@astropub/md";
 import sitemap from "@astrojs/sitemap";
 
+import remarkCallouts from "remark-callouts";
 import remarkReadingTime from "remark-reading-time";
 
 // https://astro.build/config
@@ -14,7 +15,7 @@ export default defineConfig({
     format: "preserve",
   },
   markdown: {
-    remarkPlugins: [remarkReadingTime],
+    remarkPlugins: [remarkCallouts, remarkReadingTime],
     shikiConfig: {
       themes: {
         light: "rose-pine-dawn",
