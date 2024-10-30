@@ -24,6 +24,7 @@
     "astro": "5.0.0-beta.5",
     "normalize.css": "^8.0.1",
     "open-color": "^1.9.1",
+    "remark-callouts": "workspace:*",
     "remark-reading-time": "workspace:*",
     "sanitize-html": "^2.13.1"
   }
