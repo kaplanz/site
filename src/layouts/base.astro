@@ -1,0 +1,56 @@
+---
+import Header from "../components/header.astro";
+import Footer from "../components/footer.astro";
+
+import "../styles/global.css";
+import { title as site } from "../consts";
+
+interface Props {
+  title: string;
+  about: string;
+}
+
+let { title, about } = Astro.props;
+
+title = (title ??= site) == site ? title : `${title} | ${site}`;
+---
+
+<!doctype html>
+<html lang="en-CA">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="generator" content={Astro.generator}/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <title>{title}</title>
+  <meta name="description" content={about}/>
+
+  <link
+    rel="shortcut icon"
+    type="image/x-icon"
+    href="/favicon.ico"
+  />
+  <link
+    rel="sitemap"
+    type="application/xml"
+    href="/sitemap-index.xml"
+  />
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    href="/blog/feed.xml"
+  />
+</head>
+
+<Header/>
+
+<body>
+  <main>
+    <slot/>
+  </main>
+</body>
+
+<Footer/>
+
+</html>

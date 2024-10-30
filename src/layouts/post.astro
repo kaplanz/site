@@ -1,0 +1,36 @@
+---
+import Base from "./base.astro";
+import Meta from "../components/meta.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<Base {...frontmatter}>
+  <article>
+    {/* frontmatter */}
+    <div class="frontmatter">
+      {/* title */}
+      <h1 class="title">{frontmatter.title}</h1>
+      {/* meta */}
+      <Meta {...frontmatter}/>
+    </div>
+    <hr/>
+    {/* content */}
+    <section>
+      <slot/>
+    </section>
+  </article>
+</Base>
+
+<style is:global>
+  .frontmatter {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    margin: 0;
+
+    * {
+      margin: 0;
+    }
+  }
+</style>
