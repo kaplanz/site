@@ -1,0 +1,47 @@
+@import "@primer/octicons/build/build.css";
+
+.callout {
+  border-left: 4px solid var(--callout-accent);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0 0 16px 0;
+  padding: 8px 16px;
+
+  p {
+    margin: 0;
+  }
+}
+
+.callout-title {
+  align-items: center;
+  color: var(--callout-accent);
+  display: flex;
+  margin: 0;
+  font-weight: 500;
+
+  svg {
+    font-weight: initial !important;
+    margin: 0 8px 0 0;
+  }
+}
+
+.callout-note {
+  --callout-accent: light-dark(#0969da, #4493f8);
+}
+
+.callout-tip {
+  --callout-accent: light-dark(#1a7f37, #3fb950);
+}
+
+.callout-important {
+  --callout-accent: light-dark(#8250df, #ab7df8);
+}
+
+.callout-warning {
+  --callout-accent: light-dark(#9a6700, #d29922);
+}
+
+.callout-caution {
+  --callout-accent: light-dark(#d1242f, #f85149);
+}
