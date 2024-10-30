@@ -1,0 +1,68 @@
+---
+const data = Astro.props;
+---
+
+<div class="meta">
+  {/* created date */}
+  <i class="icon fa-solid fa-calendar-day"></i>
+  <span class="item" title={data.created.toLocaleString()}>
+    {
+      new Intl.DateTimeFormat("en-ca", {
+        day: "numeric", month: "short", year: "numeric",
+      }).format(data.created)
+    }
+  </span>
+  {/* updated date */ data.updated && (
+    <i class="icon fa-solid fa-user-pen"></i>
+    <span class="item" title={data.updated.toLocaleString()}>
+      {
+        new Intl.DateTimeFormat("en-ca", {
+          day: "numeric", month: "short", year: "numeric",
+        }).format(data.updated)
+      }
+    </span>
+  )}
+  {/* tags */ data.tags && (
+    <i class="icon fa-solid fa-tags"></i>
+    <span class="item list">
+      {data.tags.map(tag => (
+        <a class="link" href=`/blog/tags#${tag}`>#{tag}</a>
+      ))}
+    </span>
+  )}
+</div>
+
+<style>
+  .meta {
+    color: var(--oc-gray-6);
+    display: flex;
+    flex-flow: row wrap;
+    font-size: .75em;
+    margin: 0 0;
+
+    .icon {
+      margin: 0 .25em 0 0;
+      line-height: inherit;
+    }
+
+    .item:not(:last-child)::after {
+      content: "•";
+      margin: 0 .5em;
+    }
+
+    .link {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        transition: all .3s ease;
+        translate: 0 -2px;
+      }
+    }
+
+    .list {
+      display: inline-flex;
+      gap: .25em;
+    }
+  }
+</style>

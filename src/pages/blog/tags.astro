@@ -1,0 +1,42 @@
+---
+import { getCollection } from "astro:content";
+
+import Page from "../../layouts/page.astro";
+
+const frontmatter = {
+  title: "Tags",
+};
+
+// Collect sorted posts
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.created.valueOf() - a.data.created.valueOf(),
+);
+// Construct tag index
+const tags = posts.reduce((tags, post) => {
+  post.data.tags.forEach((tag) => {
+    tags[tag] ||= [];
+    tags[tag].push(post);
+  });
+  return tags;
+}, {});
+---
+
+<Page {frontmatter}>
+  <section>
+    {Object.entries(tags).map(([tag, posts]) => (
+      <h3 id=`${tag}`>#{tag}</h3>
+      <ul>
+        {posts.map(post => (
+          <li>
+            <a
+              href=`/blog/${post.slug}`
+              title={post.data.created.toLocaleString()}
+            >
+              {post.data.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    ))}
+  </section>
+</Page>

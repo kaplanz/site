@@ -1,0 +1,27 @@
+---
+import Base from "../layouts/base.astro";
+---
+
+<Base title="404">
+  <article>
+    <h1>404</h1>
+    <p>
+      <strong>Page not found :(</strong>
+    </p>
+    <p>The requested page could not be found.</p>
+  </article>
+</Base>
+
+<style>
+  article {
+    margin: 10px auto;
+    max-width: var(--sm);
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 4em;
+    line-height: 1;
+    margin: 30px 0;
+  }
+</style>

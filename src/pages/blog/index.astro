@@ -1,0 +1,67 @@
+---
+import { getCollection } from "astro:content";
+
+import Page from "../../layouts/page.astro";
+import Meta from "../../components/meta.astro";
+
+export const title = "Zakhary's Blog";
+export const about = `
+  My thoughts on whatever I find interesting at the moment. Warranty not included.
+`.trim();
+
+const frontmatter = {
+  title: "Blog",
+  about,
+};
+
+// Collect sorted posts
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.created.valueOf() - a.data.created.valueOf(),
+);
+---
+
+<Page {frontmatter}>
+  <p>{about}</p>
+  <hr/>
+  <section>
+    <ul>
+      {posts.map(post => (
+        <li>
+          {/* frontmatter */}
+          <div class="frontmatter">
+            {/* title */}
+            <a href={`/blog/${post.slug}`}>
+              <h2>{post.data.title}</h2>
+            </a>
+            {/* meta */}
+            <Meta {...post.data}/>
+          </div>
+          <hr/>
+          {/* description */}
+          <div class="description">
+            <span>
+              {post.data.description}
+            </span>
+            <a href={`/blog/${post.slug}`}>
+              Read more...
+            </a>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Page>
+
+<style>
+  ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 1em 0;
+    }
+  }
+</style>
