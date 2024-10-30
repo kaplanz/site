@@ -22,6 +22,12 @@ const data = Astro.props;
       }
     </span>
   )}
+  {/* reading time */ data.readingTime && (
+    <i class="icon fa-solid fa-hourglass-half"></i>
+    <span class="item">
+      {data.readingTime.text}
+    </span>
+  )}
   {/* tags */ data.tags && (
     <i class="icon fa-solid fa-tags"></i>
     <span class="item list">
