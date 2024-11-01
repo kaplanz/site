@@ -3,19 +3,26 @@ layout: ../../layouts/page.astro
 title: Work
 ---
 
-## Intel
+## Altera (formerly Intel)
 
-I'm currently employed as an FPGA Architect at Intel's Programmable Solutions
-Group (PSG), formerly Altera. In this role I am responsible for helping design
-and model our next generation Field Programmable Gate Array (FPGA)
-architectures.
+I'm currently employed as an FPGA Architect at Altera.[^altera] My team is
+primarily responsible for designing and modelling the architecture for our next
+generation [Field Programmable Gate Arrays][fpga] (FPGAs). My specific expertise
+has most recently been in automating the simulation and analysis wire delays
+within the fabric and clock subsystems. In practice, this means a lot of working
+on top of (but usually not directly with) [SPICE].
+
+As an architecture team, we have the privilege of working on the most bleeding
+edge designs; this gives us the opportunity to dream big about what enhancements
+we can put into our next silicon. It's exciting to see how designs I will have
+worked on will contribute to the future of FPGA computing.
 
 ## Qualcomm
 
 Between my third and fourth year of studies, I had the amazing opportunity to
-complete a 16-month long internship at [Qualcomm][qualcomm] as a computer
-architect. During this time, I've had the opportunity to solve interesting and
-challenging problems working on the Snapdragon's digital signal processor (DSP).
+complete a 16-month long internship at Qualcomm as a computer architect.
+During this time, I've had the opportunity to solve interesting and challenging
+problems working on the [Snapdragon]'s digital signal processor (DSP).
 
 In this role, I diagrammed and reasoned about the design of a multi-client cache
 system, after which I created a functional and transaction-level cycle-accurate
@@ -49,6 +56,12 @@ implemented several improvements to the existing licensing system. These
 considerations have been tremendously helpful in furthering my general
 understanding of computer security.
 
+<!-- Footnotes -->
+[^altera]: Altera was formerly known as Intel's Programmable Solutions Group
+    (pre-2025). Before that, it was formerly formerly Altera (pre-2015).
+
 <!-- Reference-style links -->
-[geomecha]:  https://www.geomechanica.com
-[qualcomm]: https://www.qualcomm.com
+[fpga]:       https://en.wikipedia.org/wiki/Field-programmable_gate_array
+[geomecha]:   https://www.geomechanica.com
+[snapdragon]: https://en.wikipedia.org/wiki/Qualcomm_Snapdragon
+[spice]:      https://en.wikipedia.org/wiki/SPICE
