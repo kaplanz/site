@@ -14,3 +14,50 @@
     text-decoration: var(--shiki-dark-text-decoration) !important;
   }
 }
+
+/* rehype-autolink-headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  a.anchor,
+  a.anchor:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a.anchor::before {
+    content: "§";
+    left: 0;
+    opacity: 0;
+    padding: 0 .2em;
+    position: absolute;
+    transform: translateX(-100%);
+    transition: opacity .3s ease;
+  }
+
+  a.anchor:hover,
+  &:target a.anchor {
+    position: relative;
+
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    a.anchor::before {
+      left: 100%;
+      transform: none;
+    }
+  }
+}

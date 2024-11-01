@@ -24,6 +24,8 @@
     "astro": "5.0.0-beta.5",
     "normalize.css": "^8.0.1",
     "open-color": "^1.9.1",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-slug": "^6.0.0",
     "remark-callouts": "workspace:*",
     "remark-reading-time": "workspace:*",
     "remark-sidenotes": "workspace:*",
