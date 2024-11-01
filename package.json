@@ -26,6 +26,7 @@
     "open-color": "^1.9.1",
     "remark-callouts": "workspace:*",
     "remark-reading-time": "workspace:*",
+    "remark-sidenotes": "workspace:*",
     "sanitize-html": "^2.13.1"
   }
 }
