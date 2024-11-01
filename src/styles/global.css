@@ -11,6 +11,7 @@
 
 /* Markdown */
 @import "remark-callouts/style";
+@import "remark-sidenotes/style";
 
 /* Reset */
 @import "normalize.css";
@@ -39,20 +40,6 @@
     font-style: var(--shiki-dark-font-style) !important;
     font-weight: var(--shiki-dark-font-weight) !important;
     text-decoration: var(--shiki-dark-text-decoration) !important;
-  }
-}
-
-.footnotes {
-  p {
-    margin: 0;
-  }
-
-  &::before {
-    border: none;
-    border-top: 1px solid var(--oc-gray-5);
-    content: "";
-    display: block;
-    width: 100%;
   }
 }
 
