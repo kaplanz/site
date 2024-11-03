@@ -4,7 +4,7 @@
 /* Fonts */
 @import "@fontsource-variable/fira-code";
 @import "@fontsource-variable/rubik";
-@import "@fontsource-variable/vollkorn";
+@import "@fontsource-variable/fraunces";
 
 /* Icons */
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css");
@@ -24,7 +24,7 @@
   font-size: 18px;
   --font-mono: "Fira Code Variable", monospace;
   --font-sans: "Rubik Variable", sans-serif;
-  --font-serif: "Vollkorn Variable", serif;
+  --font-serif: "Fraunces Variable", serif;
 
   /* Size */
   height: 100%;
