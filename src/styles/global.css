@@ -87,6 +87,11 @@ main {
   padding: 1em;
 }
 
+article {
+  hyphens: auto;
+  text-align: justify;
+}
+
 h1,
 h2,
 h3,
@@ -96,6 +101,7 @@ h6 {
   font-family: var(--font-serif);
   line-height: 1.2;
   margin-top: 0;
+  text-align: start;
 }
 
 a {
