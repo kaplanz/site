@@ -60,3 +60,16 @@ h6 {
     }
   }
 }
+
+/* remark-sidenotes */
+.sidenote {
+  > label::before,
+  > span::before {
+    color: light-dark(var(--oc-cyan-9), var(--oc-cyan-5));
+
+    &:hover {
+      color: light-dark(var(--oc-cyan-7), var(--oc-cyan-3));
+      transition: all .3s ease;
+    }
+  }
+}
