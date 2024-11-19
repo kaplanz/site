@@ -3,6 +3,9 @@ import { defineConfig } from "astro/config";
 import markdown from "@astropub/md";
 import sitemap from "@astrojs/sitemap";
 
+import expressiveCode from "astro-expressive-code";
+import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers'
+
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 
@@ -13,7 +16,20 @@ import remarkSidenotes from "remark-sidenotes";
 // https://astro.build/config
 export default defineConfig({
   site: "https://zakhary.dev",
-  integrations: [markdown(), sitemap()],
+  integrations: [
+    expressiveCode({
+      plugins: [pluginLineNumbers()],
+      styleOverrides: {
+        codeLineHeight: "1.5em",
+      },
+      themes: [
+        "catppuccin-frappe",
+        "rose-pine-dawn",
+      ],
+    }),
+    markdown(),
+    sitemap(),
+  ],
   publicDir: "src/static",
   build: {
     format: "preserve",
@@ -33,11 +49,5 @@ export default defineConfig({
       ],
     ],
     remarkPlugins: [remarkCallouts, remarkReadingTime, remarkSidenotes],
-    shikiConfig: {
-      themes: {
-        light: "rose-pine-dawn",
-        dark: "catppuccin-frappe",
-      },
-    },
   },
 });
