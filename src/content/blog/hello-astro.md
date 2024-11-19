@@ -4,7 +4,7 @@ description: >
   Let's examine the history of this site's development, specifically from the
   POV of my journey exploring web development.
 created: 2024-10-30 22:00
-tags: [meta, webdev]
+tags: [meta, web, dev]
 ---
 
 As yet another systems programmer, I don't pridefully engorge myself with the
