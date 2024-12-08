@@ -12,6 +12,9 @@ has most recently been in automating the simulation and analysis wire delays
 within the fabric and clock subsystems. In practice, this means a lot of working
 on top of (but usually not directly with) [SPICE].
 
+[^altera]: Altera was formerly known as Intel's Programmable Solutions Group
+    (pre-2025). Before that, it was formerly formerly Altera (pre-2015).
+
 As an architecture team, we have the privilege of working on the most bleeding
 edge designs; this gives us the opportunity to dream big about what enhancements
 we can put into our next silicon. It's exciting to see how designs I will have
@@ -55,10 +58,6 @@ As well, I learned hands-on about how software-enforced licensing works and
 implemented several improvements to the existing licensing system. These
 considerations have been tremendously helpful in furthering my general
 understanding of computer security.
-
-<!-- Footnotes -->
-[^altera]: Altera was formerly known as Intel's Programmable Solutions Group
-    (pre-2025). Before that, it was formerly formerly Altera (pre-2015).
 
 <!-- Reference-style links -->
 [fpga]:       https://en.wikipedia.org/wiki/Field-programmable_gate_array
