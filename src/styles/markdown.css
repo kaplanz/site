@@ -52,10 +52,10 @@ h6 {
 .sidenote {
   > label::before,
   > span::before {
-    color: light-dark(var(--oc-cyan-9), var(--oc-cyan-5));
+    color: var(--link-color);
 
     &:hover {
-      color: light-dark(var(--oc-cyan-7), var(--oc-cyan-3));
+      color: var(--link-hover);
       transition: all .3s ease;
     }
   }
