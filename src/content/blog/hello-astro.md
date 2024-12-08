@@ -15,6 +15,10 @@ static site generator to produce my HTML/CSS. (I'm evidently not one of those
 masochists who writes it _on their own_.) So what is my site built using now?
 Read on to find out![^astro]
 
+[^jedis]: A reference to tmux, vim, and zsh. Obviously.
+[^astro]: Keen observers will have recognized that, in fact, this site is now
+    built using Astro. How should you have known that? Look at this post's URL.
+
 ## A Brief History
 
 Over the past few years, this site has partaken in (partook?) the traditional
@@ -47,6 +51,12 @@ site generators (SSGs). Let's retrace its history!
   when I finally uploaded the past few months' passive work towards updating
   this site yet again. But this time using [Astro].[^rugby]
 
+[^sarcasm]: If you can't sense (or don't appreciate) my sarcasm then perhaps
+    you're reading the wrong blog. Also, the language is Rust.
+[^rugby]: As an honourable mention, my Game Boy emulator has a playable
+    [demo][rugby] (powered by Rust compiled to [Wasm]) with a frontend written
+    in [Svelte].
+
 ## Hello Astro
 
 Coming from SSGs whose entire purpose was to avoid writing any JavaScript at any
@@ -66,6 +76,10 @@ using the latest bleeding-edge tooling[^irony] otherwise they risk reeking of
 obsolescence.[^sass] So much so that even Node.js may be on the out, with
 "modern" replacements such as [Bun] and [Deno] vying for attention.
 
+[^irony]: The irony is not lost on me that I too am citing my jumping between
+    web frameworks as the thesis of this post!
+[^sass]: I apparently didn't get the memo that people don't use [Sass] anymore.
+
 Anyways, this is all to say that searching through an abundance of frameworks
 and web development tooling itself was a huge learning process. Starting off I
 didn't even know what type of framework to search for![^framework] While I can't
@@ -74,6 +88,12 @@ Rendering Patterns for Web Apps][render].[^fireship] At the end of all this, I
 learned that the tool I need is... an SSG. Wait isn't that what you've been
 reading about for the past 5 minutes. Yes. It is. I may have gone down a bit of
 a rabbit hole here.
+
+[^framework]: It turns out "web framework" is a mostly useless term, as it
+    doesn't differentiate at all between the various things you would use a
+    framework to do.
+[^fireship]: Much thanks to [Fireship]'s YouTube channel for making 90% of this
+    research take 10% of the time it otherwise would have.
 
 I settled on Astro mostly because it had a nice looking website (ever the
 prerequisite for this type of thing) and overall decent documentation. That and
@@ -99,6 +119,9 @@ reimplementing that beautiful navbar you see at the top here.[^navbar] See I am
 attached to this idea of taking inspiration from those cute [Apache] file icons
 and using them as a little cursor-navigable filesystem as the navbar. The CSS
 styles were easy to migrate. The content however, was trickier.
+
+[^navbar]: If you're reading this in the future after I've ~inevitably~ moved to
+    another framework or redesigned the navbar, this part may not make sense.
 
 Unlike in Zola where every file under `content/` magically appears in an HTML
 templating language variable, in Astro, I would need to reconstruct this myself.
@@ -132,6 +155,10 @@ with easily customizable code syntax highlighting and a custom plugin to mimic
 [GitHub's Markdown Alerts][alerts] whose complexity I could probably write an
 entire post about.[^callout]
 
+[^callout]: If you're interesting in seeing how I implemented callouts, check
+    out the source code in [`remark-callouts.js`][callout] for some abstract
+    syntax tree goodness.
+
 ## Conclusion
 
 In hindsight, this entire exercise was just procrastination to starting writing
@@ -139,29 +166,6 @@ blog posts. I write these posts in Markdown, so there's no reason I couldn't
 have been writing on the old blog until I eventually migrate them over. Either
 way, I have a blog now! (And a pretty clean Astro codebase for my website
 awaiting future enhancement.)
-
-<!-- Footnotes -->
-[^astro]: Keen observers will have recognized that, in fact, this site is now
-    built using Astro. How should you have known that? Look at this post's URL.
-[^callout]: If you're interesting in seeing how I implemented callouts, check
-    out the source code in [`remark-callouts.js`][callout] for some abstract
-    syntax tree goodness.
-[^fireship]: Much thanks to [Fireship]'s YouTube channel for making 90% of this
-    research take 10% of the time it otherwise would have.
-[^framework]: It turns out "web framework" is a mostly useless term, as it
-    doesn't differentiate at all between the various things you would use a
-    framework to do.
-[^irony]: The irony is not lost on me that I too am citing my jumping between
-    web frameworks as the thesis of this post!
-[^jedis]: A reference to tmux, vim, and zsh. Obviously.
-[^navbar]: If you're reading this in the future after I've ~inevitably~ moved to
-    another framework or redesigned the navbar, this part may not make sense.
-[^rugby]: As an honourable mention, my Game Boy emulator has a playable
-    [demo][rugby] (powered by Rust compiled to [Wasm]) with a frontend written
-    in [Svelte].
-[^sarcasm]: If you can't sense (or don't appreciate) my sarcasm then perhaps
-    you're reading the wrong blog. Also, the language is Rust.
-[^sass]: I apparently didn't get the memo that people don't use [Sass] anymore.
 
 <!-- Reference-style links -->
 [alerts]:   https://github.blog/changelog/2023-12-14-new-markdown-extension-alerts-provide-distinctive-styling-for-significant-content/
