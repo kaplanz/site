@@ -5,8 +5,7 @@
 .sidenote {
   counter-increment: sidenote;
 
-  > label::before,
-  > span::before {
+  > label::before {
     content: counter(sidenote);
     font-size: 75%;
     line-height: 0;
@@ -29,15 +28,18 @@
   }
 
   > span {
+    align-items: stretch;
     box-sizing: border-box;
-    display: block;
-    float: left;
+    display: flex;
     font-size: 85%;
     padding: .75em 2em;
     width: 100%;
 
     &::before {
-      margin-right: .25em;
+      border-right: .2em solid;
+      content: counter(sidenote);
+      margin-right: .5em;
+      padding-right: .5em;
     }
   }
 }
