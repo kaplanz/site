@@ -24,7 +24,9 @@ const tags = posts.reduce((tags, post) => {
 <Page {frontmatter}>
   <section>
     {Object.entries(tags).map(([tag, posts]) => (
-      <h3 id=`${tag}`>#{tag}</h3>
+      <h3 id=`${tag}`>
+        <a class="anchor" rel="nofollow" href=`#${tag}`>{tag}</a>
+      </h3>
       <ul>
         {posts.map(post => (
           <li>
@@ -40,3 +42,21 @@ const tags = posts.reduce((tags, post) => {
     ))}
   </section>
 </Page>
+
+<style>
+  a.anchor {
+    opacity: .5;
+
+    :target &,
+    &:is(:hover) {
+      opacity: 1;
+    }
+
+    &::before {
+      content: "#";
+      padding: 0;
+      opacity: 1;
+      position: unset;
+    }
+  }
+</style>
