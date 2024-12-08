@@ -54,7 +54,15 @@ export default function remarkSidenotes() {
                 {
                   data: { hName: "span" },
                 },
-                def.children?.[0]?.children,
+                [
+                  u(
+                    "containerDirective",
+                    {
+                      data: { hName: "span" },
+                    },
+                    def.children?.[0]?.children,
+                  )
+                ],
               ),
             ],
           ),
