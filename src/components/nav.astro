@@ -22,7 +22,7 @@ const { hier } = Astro.props;
 <style>
   /* Top-level list */
   ul {
-    background-color: light-dark(var(--oc-gray-2), var(--oc-gray-8));
+    background-color: var(--bg-banners);
     display: flex;
     flex-flow: row wrap;
     font-family: var(--font-mono) !important;
@@ -38,11 +38,11 @@ const { hier } = Astro.props;
       white-space: nowrap;
 
       &:hover > a {
-        background-color: light-dark(var(--oc-cyan-8), var(--oc-cyan-4));
+        background-color: var(--link-color);
         transition: all .3s ease;
 
         > :not(ul) {
-          color: light-dark(var(--oc-gray-2), var(--oc-gray-8));
+          color: var(--bg-banners);
         }
       }
 
@@ -92,7 +92,7 @@ const { hier } = Astro.props;
   ul ul {
     border-radius: .4em;
     border: .5px solid var(--oc-gray-5);
-    box-shadow: 0 2px 3px light-dark(var(--oc-gray-5), var(--oc-black));
+    box-shadow: 0 2px 3px var(--bg-shadows);
     flex-direction: column;
     gap: .25em;
     padding: .5em;
