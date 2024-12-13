@@ -15,6 +15,10 @@ export const media = {
     link: "https://github.com/kaplanz",
     icon: "fa-brands fa-github",
   },
+  feed: {
+    link: "/blog/feed.xml",
+    icon: "fa-solid fa-square-rss",
+  },
   mail: {
     link: "mailto:me@zakhary.dev",
     icon: "fa-regular fa-envelope",
