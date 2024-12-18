@@ -8,13 +8,15 @@ const { frontmatter } = Astro.props;
 <Base {...frontmatter}>
   <article>
     {/* frontmatter */}
-    <div class="frontmatter">
-      {/* title */}
-      <h1 class="title">{frontmatter.title}</h1>
-      {/* meta */}
-      <Meta {...frontmatter}/>
-    </div>
-    <hr/>
+    <section>
+      <div class="frontmatter">
+        {/* title */}
+        <h1 class="title">{frontmatter.title}</h1>
+        {/* meta */}
+        <Meta {...frontmatter}/>
+      </div>
+      <hr/>
+    </section>
     {/* content */}
     <section>
       <slot/>
