@@ -121,6 +121,8 @@ h6 {
 
 a {
   color: var(--link-color);
+  text-decoration: underline;
+  text-decoration-style: wavy;
   transition: all .3s ease;
 
   &:hover {
