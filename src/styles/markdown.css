@@ -50,13 +50,13 @@ h6 {
 
 /* remark-sidenotes */
 .sidenote {
-  > label::before,
+  > label,
   > span::before {
     color: var(--link-color);
+    transition: all .3s ease;
 
     &:hover {
       color: var(--link-hover);
-      transition: all .3s ease;
     }
   }
 }
