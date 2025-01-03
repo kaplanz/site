@@ -14,7 +14,7 @@
     "check": "biome check --write ."
   },
   "dependencies": {
-    "@astrojs/rss": "^4.0.9",
+    "@astrojs/rss": "4.0.11",
     "@astrojs/sitemap": "^3.2.1",
     "@astropub/md": "^1.0.0",
     "@biomejs/biome": "^1.9.4",
@@ -22,7 +22,7 @@
     "@fontsource-variable/fira-code": "^5.1.0",
     "@fontsource-variable/fraunces": "^5.1.0",
     "@fontsource-variable/rubik": "^5.1.0",
-    "astro": "5.0.2",
+    "astro": "5.1.2",
     "astro-expressive-code": "^0.38.3",
     "normalize.css": "^8.0.1",
     "open-color": "^1.9.1",
