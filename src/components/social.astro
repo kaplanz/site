@@ -1,0 +1,53 @@
+---
+import { media } from "../global";
+---
+
+<ul>
+  {Object.entries(media).map(([key, val]) => (
+    <li>
+      <a class="plain" target="_blank" href={val.link}>
+        <svg viewBox="0 0 16 16" width="16" height="16">
+          <use fill="currentColor" href=`#${val.icon}`></use>
+        </svg>
+      </a>
+    </li>
+  ))}
+</ul>
+
+<style>
+  ul {
+    display: inline-flex;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    display: inline-block;
+    box-sizing: content-box;
+
+    aspect-ratio: 1;
+    border-radius: 4px;
+    height: 16px;
+    padding: 2px;
+
+    color: inherit;
+
+    transition:
+      color .2s,
+      background .2s,
+      transform .2s;
+
+    &:hover {
+      color: var(--backgd);
+      background: var(--accent);
+      transform:
+        scale(1.2)
+        rotateX(10deg)
+        rotateY(05deg)
+        rotateZ(05deg)
+      ;
+    }
+  }
+</style>
