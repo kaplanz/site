@@ -1,6 +1,5 @@
 ---
-title: >
-  Harmful Practices Considered Best
+title: Harmful Practices Considered Best
 description: >
   A mild critique of the nature of "best practices" and "considered harmful"
   manifestos.
@@ -53,7 +52,7 @@ They do this by snowcloning a sensationalized headline as a mnemonic device.
 It's easy to avoid using `goto` when your brain associates the keyword with
 "considered harmful." Obviously when such essays are written in good faith, they
 expressly defend their thesis with sound arguments. But this format doesn't
-explicitly link the effect (e.g. don't use `goto`) with the cause (only *misuse*
+explicitly link the effect (e.g. don't use `goto`) with the cause (only _misuse_
 leads to bad code).
 
 And I absolutely have fallen for this trap! In fact, I only actually read the

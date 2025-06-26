@@ -1,131 +1,18 @@
 ---
-import { translate } from "../apache.js";
-
-import Nav from "./nav.astro";
-
-// Construct page directory
-let pages = [
-  // Add rendered pages
-  ...Object.keys(import.meta.glob("/src/pages/**/*.{astro,md}"))
-    // extract path
-    .map((page) =>
-      page
-        // remove prefix
-        .slice("/src/pages".length)
-        // remove extension
-        .split(".")
-        .shift(),
-    )
-    // flatten indices
-    .map((page) => {
-      const match = "/index";
-      return page.endsWith(match) ? page.slice(0, -match.length) : page;
-    })
-    // ignore error page
-    .filter((page) => page != "/404")
-    // ignore blog contents
-    .filter((page) => !page.includes("blog/"))
-    // construct page entry
-    .map((page) => ({
-      name: page.split("/").pop(),
-      link: page,
-      icon: {
-        idle: "layout",
-        peek: "index",
-      },
-    })),
-  // Add static pages
-  ...["/src/static/resume.pdf"]
-    // extract path
-    .map((page) => page.slice("/src/static".length))
-    // construct page entry
-    .map((page) => ({
-      name: page
-        // remove prefix
-        .split("/")
-        .pop(),
-      link: page,
-      icon: {
-        idle: translate(page.split(".").pop()),
-        peek: "index",
-      },
-    })),
-];
-
-// Construct page hierarchy
-const hier = {
-  // Declare root properties
-  "": {
-    name: "~/",
-    link: "/",
-    icon: {
-      idle: "comp.gray",
-      peek: "comp.blue",
-    },
-  },
-  // Construct hierarchy from pages
-  ...(function (pages) {
-    // Declare hierarchy root
-    let root = {};
-
-    // Iterate over pages
-    pages
-      // sort alphabetically
-      .sort((a, b) => a.link.localeCompare(b.link))
-      // arrange hierarchically
-      .forEach((page) => {
-        // Handle subdirectories
-        let tier = root;
-        const parts = page.link
-          // split path by parts
-          .split("/")
-          // filter out empty parts
-          .filter(Boolean);
-
-        // Construct hierarchy
-        parts.forEach((part, index) => {
-          // If at last part, must be a page
-          if (index === parts.length - 1) {
-            tier[part] = { ...page, ...tier[part] };
-          }
-          // Otherwise, it's a directory
-          else {
-            tier[part] ??= {};
-            // Declare name
-            tier[part].name ??= part;
-            // Overwrite icon
-            tier[part].icon ??= {};
-            tier[part].icon.idle = "folder";
-            tier[part].icon.peek = "folder.open";
-            // Initialize hierarchy
-            tier[part].hier ??= {};
-            // Descend into directory
-            tier = tier[part].hier;
-          }
-        });
-      });
-
-    return root;
-  })(pages),
-};
+import Crumbs from "./crumbs.astro";
+import Social from "./social.astro";
 ---
 
 <header>
-  <nav>
-    <Nav {hier}/>
-  </nav>
+  <Crumbs />
+  <Social />
 </header>
 
 <style>
   header {
-    align-items: center;
-    background-color: var(--bg-banners);
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
-    padding: .5em;
-  }
-
-  nav {
-    margin: auto;
   }
 </style>

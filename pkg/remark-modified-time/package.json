@@ -1,0 +1,8 @@
+{
+  "name": "remark-modified-time",
+  "version": "0.1.0",
+  "exports": {
+    ".": "./index.js"
+  },
+  "type": "module"
+}

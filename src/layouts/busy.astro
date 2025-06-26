@@ -1,0 +1,28 @@
+---
+import Base from "./base.astro";
+
+const frontmatter = Astro.props;
+---
+
+<Base {...frontmatter}>
+  <article>
+    <section class="center">
+      <h1>Under Construction</h1>
+      <p>
+        My homepage is currently undergoing some renovations... please check back later!
+      </p>
+    </section>
+    <slot/>
+  </article>
+</Base>
+
+<style>
+  .center {
+    margin-block: 8em;
+    text-align: center;
+
+    p {
+      text-align: inherit;
+    }
+  }
+</style>

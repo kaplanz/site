@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+import { Markdown } from "@astropub/md";
+
+import Page from "../../layouts/page.astro";
+
+const frontmatter = {
+  title: "Cookbook",
+  about: `
+    A collection of recipes I like to cook often. Life story not included.
+  `.trim(),
+};
+
+// Collect sorted recipes
+const foods = (await getCollection("food"))
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+
+<Page {...frontmatter}>
+  <p>{frontmatter.about}</p>
+  <blockquote class="callout callout-caution">
+    This section is under construction.
+  </blockquote>
+  <blockquote class="callout callout-note">
+    I don't take credit for the creation of any of these recipes. Where
+    applicable, I have included the upstream source.
+  </blockquote>
+  <ul class="blog">
+    {foods.map(food => (
+    <li class="post">
+      <a href=`/food/${food.id}`>
+        <span class="title" id={food.id}>{food.data.title}</span>
+      </a>
+    </li>
+    ))}
+  </ul>
+</Page>
