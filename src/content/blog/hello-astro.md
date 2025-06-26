@@ -1,5 +1,6 @@
 ---
 title: I Rewrote This Site (Again)
+draft: true
 description: >
   Let's examine the history of this site's development, specifically from the
   POV of my journey exploring web development.

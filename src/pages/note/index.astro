@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+
+import Note from "../../components/note.astro";
+import Page from "../../layouts/page.astro";
+
+const frontmatter = {
+  title: "Notebook",
+  about: `
+    My thoughts on whatever I find interesting at the moment. Warranty not included.
+  `.trim(),
+};
+
+// Collect sorted posts
+const posts = (await getCollection("note"))
+  .map((it) => ({ ...it, time: new Date(1000 * Number.parseInt(it.slug, 16)) }))
+  .sort((a, b) => b.time - a.time);
+---
+
+<Page {...frontmatter}>
+  <p>{frontmatter.about}</p>
+  <section class="feed">
+    {posts.map(note => (
+      <Note {note}/>
+    ))}
+  </section>
+</Page>
+
+<style>
+  section.feed {
+    display: flex;
+
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+  }
+</style>

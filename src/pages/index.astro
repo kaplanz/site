@@ -1,16 +1,78 @@
 ---
+import Note from "../components/note.astro";
 import Base from "../layouts/base.astro";
 
+import { getCollection } from "astro:content";
 import { Markdown } from "@astropub/md";
 
-import { title, about } from "../consts";
+// Get most recent note
+const note = (await getCollection("note"))
+  .map((it) => ({ ...it, time: new Date(1000 * Number.parseInt(it.slug, 16)) }))
+  .sort((a, b) => b.time - a.time)
+  .shift();
 
-const request = await fetch(
-  "https://github.com/kaplanz/kaplanz/raw/refs/heads/main/README.md",
-);
-const content = await request.text();
+// Collect sorted posts
+const posts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.created.valueOf() - a.data.created.valueOf())
+  .slice(0, 3);
 ---
 
-<Base {title} {about}>
-  <Markdown of={content}/>
+<Base>
+  <article>
+    <section>
+      <img
+        class="prof"
+        src="/img/profile.png"
+        alt="A low-resolution photo with my cat taken on the Game Boy Camera"
+      />
+      <Markdown of={`
+Hey, I'm Zakhary.[^spell] I'm a computer architect and retro-computer[^dmgbc]
+enthusiast.
+
+[^spell]: Note the ✨ _unique_ ✨ spelling. Most people spell it wrong, but I
+  don't really mind at this point. I personally believe I use a spelling most
+  phonetically similar to the name's origin, זכריה, which you can also call me
+  if you can pronounce \`χ\`[^phone] properly.
+[^phone]: That's a [voiceless uvular fricative][wiki:vuf]
+[^dmgbc]: But mostly the Nintendo Game Boy, which I didn't actually have as a
+  child.
+
+[wiki:vuf]: https://en.wikipedia.org/wiki/Voiceless_uvular_fricative
+      `}/>
+    </section>
+    <section>
+      <h2>Thoughts</h2>
+      <Note {note}/>
+      <a href="/note/">&rsaquo; more</a>
+    </section>
+    <section>
+      <h2>Recent posts</h2>
+      <ul class="blog">
+        {posts.map(post => (
+          <li class="post">
+            <span class="date">{post.data.created.toLocaleDateString()}</span>
+            <a href=`/blog/${post.slug}`>
+              <span class="title" id={post.slug}>{post.data.title}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <a href="/blog/">&rsaquo; more</a>
+    </section>
+  </article>
 </Base>
+
+<style>
+  img.prof {
+    display: block;
+    margin: 1em auto;
+
+    border: 6px solid var(--banner);
+    border-radius: 100%;
+  }
+
+  :global(article.note) {
+    margin: 1em auto !important;
+  }
+</style>

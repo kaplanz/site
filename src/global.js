@@ -3,28 +3,24 @@ export const owner = "Zakhary Kaplan";
 
 // Details.
 export const title = "Zakhary's Home";
-export const about = null;
+export const about = "My little corner of the internet.";
 
 // Socials.
 export const media = {
   linkedin: {
     link: "https://in.linkedin.com/in/zakhary",
-    icon: "fa-brands fa-linkedin",
+    icon: "logo:linkedin",
   },
   github: {
     link: "https://github.com/kaplanz",
-    icon: "fa-brands fa-github",
-  },
-  feed: {
-    link: "/blog/feed.xml",
-    icon: "fa-solid fa-square-rss",
+    icon: "logo:github",
   },
   mail: {
     link: "mailto:me@zakhary.dev",
-    icon: "fa-regular fa-envelope",
+    icon: "icon:mail",
   },
-  repo: {
-    link: "https://github.com/kaplanz/site",
-    icon: "fa-solid fa-code",
+  feed: {
+    link: "/feed.xml",
+    icon: "icon:feed",
   },
 };

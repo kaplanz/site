@@ -1,40 +1,38 @@
 ---
 import { getCollection } from "astro:content";
 
-import Page from "../../layouts/page.astro";
+import Page from "../layouts/page.astro";
 
 const frontmatter = {
   title: "Tags",
 };
 
 // Collect sorted posts
-const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.created.valueOf() - a.data.created.valueOf(),
-);
+const posts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.created.valueOf() - a.data.created.valueOf());
 // Construct tag index
 const tags = posts.reduce((tags, post) => {
-  post.data.tags.forEach((tag) => {
+  for (const tag of post.data.tags) {
     tags[tag] ||= [];
     tags[tag].push(post);
-  });
+  }
   return tags;
 }, {});
 ---
 
-<Page {frontmatter}>
+<Page {...frontmatter}>
   <section>
     {Object.entries(tags).map(([tag, posts]) => (
-      <h3 id=`${tag}`>
+      <h3 id={tag}>
         <a class="anchor" rel="nofollow" href=`#${tag}`>{tag}</a>
       </h3>
-      <ul>
+      <ul class="blog">
         {posts.map(post => (
-          <li>
-            <a
-              href=`/blog/${post.slug}`
-              title={post.data.created.toLocaleString()}
-            >
-              {post.data.title}
+          <li class="post">
+            <span class="date">{post.data.created.toLocaleDateString()}</span>
+            <a href=`/blog/${post.slug}`>
+              <span class="title" id={post.slug}>{post.data.title}</span>
             </a>
           </li>
         ))}
@@ -46,6 +44,7 @@ const tags = posts.reduce((tags, post) => {
 <style>
   a.anchor {
     opacity: .5;
+    transition: all .2s;
 
     :target &,
     &:is(:hover) {
@@ -58,5 +57,9 @@ const tags = posts.reduce((tags, post) => {
       opacity: 1;
       position: unset;
     }
+  }
+
+  .title[id]:not(:hover) {
+    view-transition-name: none !important;
   }
 </style>

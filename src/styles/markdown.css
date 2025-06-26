@@ -23,7 +23,7 @@ h6 {
     padding: 0 .2em;
     position: absolute;
     transform: translateX(-100%);
-    transition: opacity .3s ease;
+    transition: opacity .2s ease;
   }
 
   a.anchor:hover,
@@ -32,15 +32,8 @@ h6 {
       opacity: 1;
     }
   }
-}
 
-@media (max-width: 1024px) {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  @media (max-width: 800px) {
     a.anchor::before {
       left: 100%;
       transform: none;
@@ -52,11 +45,45 @@ h6 {
 .sidenote {
   > label,
   > span::before {
-    color: var(--link-color);
-    transition: all .3s ease;
+    color: var(--accent);
+    font-weight: bold;
+  }
+}
 
-    &:hover {
-      color: var(--link-hover);
+/* shiki */
+pre > code {
+  counter-reset: code;
+
+  &:has(> span.line:nth-child(1)) {
+    --gutter: 1ch;
+  }
+
+  &:has(> span.line:nth-child(10)) {
+    --gutter: 2ch;
+  }
+
+  &:has(> span.line:nth-child(100)) {
+    --gutter: 3ch;
+  }
+
+  &:has(> span.line:nth-child(1000)) {
+    --gutter: 4ch;
+  }
+
+  > span.line {
+    counter-increment: code;
+
+    &::before {
+      display: inline-block;
+
+      inline-size: var(--gutter);
+      margin-inline-end: 1ch;
+
+      content: counter(code);
+      text-align: end;
+      user-select: none;
+
+      opacity: 0.5;
     }
   }
 }

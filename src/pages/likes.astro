@@ -1,0 +1,74 @@
+---
+import Page from "../layouts/page.astro";
+
+const frontmatter = {
+  title: "Likes",
+};
+---
+
+<script>
+  import { html, render } from "lit";
+
+  // Fetch from API endpoint
+  const likes = await fetch("https://api.zakhary.dev/likes")
+    .then(r => r.json());
+  // Sort results
+  likes.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
+
+  // Render into the page
+  render(html`
+    ${likes.map(item => html`
+      <li>
+        <div>
+          <a href=${item.link} target="_blank">${item.name || item.link}</a>
+        </div>
+        <aside class="tags">
+          ${item.tags?.map(tag => html`<span>#${tag}</span>`)}
+        </aside>
+      </li>
+    `)}
+  `, document.getElementById("likes"));
+</script>
+
+<Page {...frontmatter}>
+  <p>
+    Since I don't really use traditional social media, this page is a collection
+    of "likes" from across the internet. This mostly started from my being
+    unhappy with existing bookmark managing tools. What's the point of
+    collecting links if they've private and no one ever sees them?
+  </p>
+  <hr/>
+  <ul id="likes"></ul>
+</Page>
+
+<style>
+  aside.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  ul#likes {
+    list-style: none;
+    padding: 0;
+
+    li {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      border: 2px solid var(--darker);
+      border-radius: 8px;
+      background: var(--darken);
+
+      margin-block: .5em;
+      padding: .5em 1em;
+
+      a {
+        font-family: var(--serif);
+        font-weight: normal;
+      }
+    }
+  }
+</style>

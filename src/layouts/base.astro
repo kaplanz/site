@@ -1,9 +1,11 @@
 ---
-import Header from "../components/header.astro";
 import Footer from "../components/footer.astro";
+import Header from "../components/header.astro";
+import Navbar from "../components/navbar.astro";
 
-import "../styles/global.css";
-import { title as site } from "../consts";
+import Icons from "../icons.svg?raw";
+
+import { title as global } from "../global";
 
 interface Props {
   title: string;
@@ -12,45 +14,88 @@ interface Props {
 
 let { title, about } = Astro.props;
 
-title = (title ??= site) == site ? title : `${title} | ${site}`;
+title = (title ?? global) === global ? global : `${title} | ${global}`;
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-CA">
 
 <head>
+  <!-- Metadata -->
   <meta charset="utf-8"/>
-  <meta name="generator" content={Astro.generator}/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="generator" content={Astro.generator}/>
 
+  <!-- Document -->
   <title>{title}</title>
   <meta name="description" content={about}/>
 
-  <link
-    rel="shortcut icon"
-    type="image/x-icon"
-    href="/favicon.ico"
-  />
-  <link
-    rel="sitemap"
-    type="application/xml"
-    href="/sitemap-index.xml"
-  />
-  <link
-    rel="alternate"
-    type="application/rss+xml"
-    href="/blog/feed.xml"
-  />
+  <!-- Resource -->
+  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.zakhary.dev/icons/comp.gray.png"/>
+  <link rel="sitemap" type="application/xml" href="/sitemap-index.xml"/>
+  <link rel="alternate" type="application/rss+xml" href="/blog/feed.xml"/>
+
+  <!-- Styles -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.zakhary.dev/style/latest/main.css"/>
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ddf2d1"/>
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#223b52"/>
 </head>
 
-<Header/>
-
 <body>
+  <Header/>
+
   <main>
+    <Navbar/>
     <slot/>
   </main>
+
+  <Footer/>
+
+  <Fragment set:html={Icons} />
 </body>
 
-<Footer/>
-
 </html>
+
+<style is:global>
+  @import "../styles/markdown.css";
+
+  main > nav {
+    display: flex;
+    justify-content: center;
+  }
+
+  span.title,
+  article.note {
+    &[id] {
+      view-transition-name: auto;
+      view-transition-name: attr(id type(<custom-ident>), none);
+    }
+  }
+
+  article.post {
+    header {
+      border-block-end: 1px solid var(--border);
+      padding-block: 1em;
+
+      h1 {
+        margin: 0;
+      }
+    }
+  }
+
+  ul.blog {
+    li.post {
+      .date {
+        font: .8em var(--mono);
+
+        background: oklch(from var(--teal) l c h / .4);
+        border-radius: 4px;
+        padding: 0 2px;
+      }
+
+      .title {
+        font: 1em var(--serif);
+      }
+    }
+  }
+</style>

@@ -1,15 +1,15 @@
-import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
+import rss from "@astrojs/rss";
 
 import sanitizeHtml from "sanitize-html";
 
-import { title, about as description } from "./index.astro";
+import { about as description, title } from "../global";
 
 export async function GET(context) {
   // Collect sorted posts
-  const posts = (await getCollection("blog")).sort(
-    (a, b) => b.data.created.valueOf() - a.data.created.valueOf(),
-  );
+  const posts = (await getCollection("blog"))
+    .filter((post) => !post.data.draft)
+    .sort((a, b) => b.data.created.valueOf() - a.data.created.valueOf());
   return rss({
     // `<title>` field in output xml
     title,

@@ -1,5 +1,5 @@
-import { visit } from "unist-util-visit";
 import { u } from "unist-builder";
+import { visit } from "unist-util-visit";
 
 export default function remarkSidenotes() {
   return (tree) => {
@@ -61,7 +61,7 @@ export default function remarkSidenotes() {
                       data: { hName: "span" },
                     },
                     def.children?.[0]?.children,
-                  )
+                  ),
                 ],
               ),
             ],

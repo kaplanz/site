@@ -1,34 +1,21 @@
 ---
-import { owner, media } from "../consts";
+import { owner } from "../global";
 ---
 
 <footer>
-  <ul>
-    {Object.entries(media).map(([key, val]) => (
-      <li>
-        <a target="_blank" href={val.link}>
-          <i class={ val.icon ?? "fa-solid fa-link" }></i>
-        </a>
-      </li>
-    ))}
-  </ul>
-  <small>&copy; {new Date().getFullYear()} {owner}</small>
+  <section>
+    <span>
+      <small>&copy; {new Date().getFullYear()} {owner}</small>
+      <small>&bull;</small>
+      <small><a href="/privacy">Privacy</a></small>
+      <small>&bull;</small>
+      <small><a href="/slashes">Slashes</a></small>
+    </span>
+  </section>
 </footer>
 
 <style>
-  footer {
-    background-color: var(--bg-banners);
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    padding: 1em;
-    text-align: center;
-  }
-
   ul {
-    display: flex;
-    gap: 1em;
-    justify-content: center;
     list-style: none;
     margin: 0;
     padding: 0;

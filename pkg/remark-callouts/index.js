@@ -1,5 +1,5 @@
-import { visit } from "unist-util-visit";
 import { u } from "unist-builder";
+import { visit } from "unist-util-visit";
 
 import octicons from "@primer/octicons";
 
@@ -70,7 +70,7 @@ export default function remarkCallouts() {
               "paragraph",
               {
                 data: {
-                  hProperties: { className: `callout-title` },
+                  hProperties: { className: "callout-title" },
                 },
               },
               [
