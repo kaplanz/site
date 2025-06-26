@@ -1,80 +1,75 @@
 ---
 import { getCollection } from "astro:content";
 
-import Page from "../../layouts/page.astro";
 import Meta from "../../components/meta.astro";
-
-export const title = "Zakhary's Blog";
-export const about = `
-  My thoughts on whatever I find interesting at the moment. Warranty not included.
-`.trim();
+import Page from "../../layouts/page.astro";
 
 const frontmatter = {
   title: "Blog",
-  about,
+  about: `
+    My thoughts on whatever I find interesting at the moment. Warranty not included.
+  `.trim(),
 };
 
 // Collect sorted posts
-const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.created.valueOf() - a.data.created.valueOf(),
-);
+const posts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.created.valueOf() - a.data.created.valueOf());
 ---
 
-<Page {frontmatter}>
-  <p>{about}</p>
-  <section>
-    <ul>
-      {posts.map(post => (
-        <li>
-          {/* frontmatter */}
-          <div class="frontmatter">
-            {/* title */}
-            <a class="title" href={`/blog/${post.slug}`}>
-              <h1>{post.data.title}</h1>
+<Page {...frontmatter}>
+  <p>{frontmatter.about}</p>
+  <section class="blog">
+    {posts.map(post => (
+      <article class="post">
+        <header>
+          <h1>
+            <a href=`/blog/${post.slug}`>
+              <span class="title" id={post.slug}>{post.data.title}</span>
             </a>
-            {/* meta */}
-            <Meta {...post.data}/>
-          </div>
-          <hr/>
-          {/* description */}
-          <div class="description">
-            <span>
-              {post.data.description}
-            </span>
-            <br/>
-            <a href={`/blog/${post.slug}`}>
-              Read more...
-            </a>
-          </div>
-        </li>
-      ))}
-    </ul>
+          </h1>
+          <Meta {...post.data}/>
+        </header>
+        <section>
+          <p>
+            {post.data.description}
+          </p>
+        </section>
+      </article>
+    ))}
   </section>
 </Page>
 
 <style>
-  ul {
+  section.blog {
     display: flex;
     flex-direction: column;
-    list-style: none;
+    gap: 1em;
+
     margin: 0;
     padding: 0;
 
-    li {
-      border-top: .1em dashed;
-      padding: 1em;
+    article.post {
+      list-style: none;
 
-      a.title {
-        color: inherit;
-        text-decoration: none;
+      border: 2px solid var(--darker);
+      border-radius: 8px;
+      box-shadow: 2.25px 3px var(--shadow);
 
-        &:hover {
-          color: var(--link-color);
-        }
+      background: var(--darken);
+      padding-inline: 1em;
+      box-sizing: content-box;
 
-        > * {
-          margin-bottom: .2em;
-        }
+      h1 {
+        font-size: 1.6em;
+      }
+
+      a:not(:hover) {
+        text-decoration-color: transparent;
+      }
+
+      .title {
+        font: inherit;
       }
     }
   }

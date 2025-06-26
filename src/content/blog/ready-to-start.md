@@ -9,7 +9,7 @@ updated: 2024-10-29 23:40
 tags: [meta]
 ---
 
-<p align="center">
+<p style="text-align: center;">
   <i>
    If I was scared, I would
    <br/>

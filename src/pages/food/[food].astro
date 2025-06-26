@@ -1,0 +1,106 @@
+---
+import { getCollection } from "astro:content";
+import { Markdown } from "@astropub/md";
+
+import Base from "../../layouts/base.astro";
+
+export async function getStaticPaths() {
+  const foods = await getCollection("food");
+  return foods.map((food) => ({
+    params: { food: food.id },
+    props: { food },
+  }));
+}
+
+const { food } = Astro.props;
+---
+
+<Base {...food.data}>
+  <article class="food">
+    <header>
+      <h1>
+        <span class="title" id={food.id}>{food.data.title}</span>
+      </h1>
+      <aside class="info">
+        {food.data.info.yield && (
+          <svg class="icon" viewBox="0 0 16 16" width="16" height="16">
+            <use fill="currentColor" href="#icon:user"></use>
+          </svg>
+          <span class="item">{food.data.info.yield}</span>
+        )}
+        {food.data.info.prep && (
+          <svg class="icon" viewBox="0 0 16 16" width="16" height="16">
+            <use fill="currentColor" href="#icon:list"></use>
+          </svg>
+          <span class="item">{food.data.info.prep}</span>
+        )}
+        {food.data.info.cook && (
+          <svg class="icon" viewBox="0 0 16 16" width="16" height="16">
+            <use fill="currentColor" href="#icon:fire"></use>
+          </svg>
+          <span class="item">{food.data.info.cook}</span>
+        )}
+        {food.data.info.time && (
+          <svg class="icon" viewBox="0 0 16 16" width="16" height="16">
+            <use fill="currentColor" href="#icon:time"></use>
+          </svg>
+          <span class="item">{food.data.info.time}</span>
+        )}
+        {food.data.link && (
+          <a href={food.data.link} target="_blank">Source</a>
+        )}
+      </aside>
+    </header>
+    <section>
+      <h2>Ingredients</h2>
+      <ul>
+        {food.data.body.ingredients.map(item => (
+          <li><Markdown of={item}/></li>
+        ))}
+      </ul>
+      <h2>Instructions</h2>
+      <ol>
+        {food.data.body.instructions.map(item => (
+          <li><Markdown of={item}/></li>
+        ))}
+      </ol>
+      {food.data.body.notes && (
+        <blockquote id="notes" class="callout callout-note">
+          <Markdown of={food.data.body.notes}/>
+        </blockquote>
+      )}
+    </section>
+  </article>
+</Base>
+
+<style>
+  li {
+    > p {
+      margin: 0;
+    }
+  }
+
+  .info {
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-items: center;
+
+    font-size: .75em;
+
+    .icon {
+      margin: 0 4px 0 0;
+      line-height: inherit;
+    }
+
+    .item:not(:last-child)::after {
+      content: "•";
+      margin: 0 .5em;
+    }
+  }
+
+  #notes {
+    h1, h2, h3, h4, h5, h6 {
+      font-size: inherit;
+    }
+  }
+</style>

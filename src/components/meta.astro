@@ -1,53 +1,56 @@
 ---
+import dayjs from "dayjs";
+
 const data = Astro.props;
 ---
 
-<div class="meta">
+<aside class="meta">
   {/* created date */}
-  <i class="icon fa-solid fa-calendar-day"></i>
-  <span class="item" title={data.created.toLocaleString()}>
-    {
-      new Intl.DateTimeFormat("en-ca", {
-        day: "numeric", month: "short", year: "numeric",
-      }).format(data.created)
-    }
+  <svg class="icon" viewBox="0 0 16 16" width="16" height="16">
+    <use fill="currentColor" href="#icon:date"></use>
+  </svg>
+  <span class="item" title={data.created}>
+    {dayjs(data.created).format("DD MMM YYYY")}
   </span>
   {/* updated date */ data.updated && (
-    <i class="icon fa-solid fa-user-pen"></i>
-    <span class="item" title={data.updated.toLocaleString()}>
-      {
-        new Intl.DateTimeFormat("en-ca", {
-          day: "numeric", month: "short", year: "numeric",
-        }).format(data.updated)
-      }
+    <svg class="icon" viewBox="0 0 16 16" width="16" height="16">
+      <use fill="currentColor" href="#icon:edit"></use>
+    </svg>
+    <span class="item" title={data.updated}>
+      {dayjs(data.updated).format("DD MMM YYYY")}
     </span>
   )}
   {/* reading time */ data.readingTime && (
-    <i class="icon fa-solid fa-hourglass-half"></i>
+    <svg class="icon" viewBox="0 0 16 16" width="16" height="16">
+      <use fill="currentColor" href="#icon:time"></use>
+    </svg>
     <span class="item">
       {data.readingTime.text}
     </span>
   )}
   {/* tags */ data.tags && (
-    <i class="icon fa-solid fa-tags"></i>
+    <svg class="icon" viewBox="0 0 16 16" width="16" height="16">
+      <use fill="currentColor" href="#icon:tags"></use>
+    </svg>
     <span class="item list">
       {data.tags.map(tag => (
-        <a class="link" href=`/blog/tags#${tag}`>#{tag}</a>
+        <a href=`/tags#${tag}`>#{tag}</a>
       ))}
     </span>
   )}
-</div>
+</aside>
 
 <style>
   .meta {
-    color: var(--oc-gray-6);
-    display: flex;
+    display: inline-flex;
     flex-flow: row wrap;
+
+    margin-block-start: .5em;
+
     font-size: .75em;
-    margin: 0 0;
 
     .icon {
-      margin: 0 .25em 0 0;
+      margin: 0 4px 0 0;
       line-height: inherit;
     }
 
@@ -56,20 +59,14 @@ const data = Astro.props;
       margin: 0 .5em;
     }
 
-    .link {
-      color: inherit;
-      text-decoration: none;
-
-      &:hover {
-        color: var(--foreground);
-        transition: all .3s ease;
-        translate: 0 -2px;
-      }
-    }
-
     .list {
       display: inline-flex;
-      gap: .25em;
+      gap: 4px;
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
     }
   }
 </style>

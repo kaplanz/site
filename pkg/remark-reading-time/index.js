@@ -1,8 +1,8 @@
-import getReadingTime from "reading-time";
 import { toString } from "mdast-util-to-string";
+import getReadingTime from "reading-time";
 
 export default function remarkReadingTime() {
-  return function (tree, { data }) {
+  return (tree, { data }) => {
     // Convert the document tree to a string, and calculate the reading time
     const text = toString(tree);
     const read = getReadingTime(text);
