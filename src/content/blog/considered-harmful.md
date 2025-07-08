@@ -4,6 +4,7 @@ description: >
   A mild critique of the nature of "best practices" and "considered harmful"
   manifestos.
 created: 2024-11-18 18:45
+updated: 2025-07-07 23:00
 tags: [dev]
 ---
 
@@ -188,7 +189,8 @@ int main(int argc, char *argv[]) {
 
     // Ensure an input file was provided
     if (argc == 1) {
-        goto missing;
+        error = "missing input file";
+        goto failure;
     }
 
     // Open the file
@@ -226,10 +228,6 @@ cleanup:
 
     // Otherwise, return gracefully
     return EXIT_SUCCESS;
-
-missing:
-    // Handle case of missing input file
-    error = "missing input file";
 
 failure:
     fprintf(stderr, "error: %s\n", error);
