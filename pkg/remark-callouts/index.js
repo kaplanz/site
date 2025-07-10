@@ -58,29 +58,13 @@ export default function remarkCallouts() {
           "containerDirective",
           {
             data: {
-              hName: "div",
+              hName: "blockquote",
               hProperties: {
                 className: `callout callout-${type.toLowerCase()}`,
               },
             },
           },
           [
-            // Add the title as a normal paragraph with a specific class
-            u(
-              "paragraph",
-              {
-                data: {
-                  hProperties: { className: "callout-title" },
-                },
-              },
-              [
-                u("html", octicons[Callout.toIcon(type)].toSVG()),
-                {
-                  type: "text",
-                  value: type.toTitleCase(),
-                },
-              ],
-            ),
             // Add each line of content as a separate paragraph
             ...node.children.filter((node) => node.children[0]?.value),
           ],

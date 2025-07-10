@@ -1,47 +1,55 @@
 @import "@primer/octicons/build/build.css";
 
-.callout {
-  border-left: 4px solid var(--callout-accent);
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin: 0 0 16px 0;
-  padding: 8px 16px;
+blockquote.callout {
+  border-inline-start: 4px solid var(--callout-color);
+  padding: .5em 1em;
 
-  p {
-    margin: 0;
-  }
-}
+  &::before {
+    --width: 1.5em;
 
-.callout-title {
-  align-items: center;
-  color: var(--callout-accent);
-  display: flex;
-  margin: 0;
-  font-weight: 500;
+    display: block;
+    content: var(--callout-label);
 
-  svg {
-    font-weight: initial !important;
-    margin: 0 8px 0 0;
+    padding-inline-start: var(--width);
+    margin-block-end: 16px;
+
+    color: var(--callout-color);
+    font-weight: 500;
+
+    background:
+      linear-gradient(currentColor) no-repeat left center / var(--width) 100%;
+    mask:
+      var(--callout-glyph) no-repeat left center / 1em,
+      linear-gradient(#000) no-repeat var(--width) center / 100%;
   }
 }
 
 .callout-note {
-  --callout-accent: light-dark(#0969da, #4493f8);
+  --callout-color: light-dark(#0969da, #4493f8);
+  --callout-glyph: url("@primer/octicons/build/svg/info-16.svg");
+  --callout-label: "Note";
 }
 
 .callout-tip {
-  --callout-accent: light-dark(#1a7f37, #3fb950);
+  --callout-color: light-dark(#1a7f37, #3fb950);
+  --callout-glyph: url("@primer/octicons/build/svg/light-bulb-16.svg");
+  --callout-label: "Tip";
 }
 
 .callout-important {
-  --callout-accent: light-dark(#8250df, #ab7df8);
+  --callout-color: light-dark(#8250df, #ab7df8);
+  --callout-glyph: url("@primer/octicons/build/svg/report-16.svg");
+  --callout-label: "Important";
 }
 
 .callout-warning {
-  --callout-accent: light-dark(#9a6700, #d29922);
+  --callout-color: light-dark(#9a6700, #d29922);
+  --callout-glyph: url("@primer/octicons/build/svg/alert-16.svg");
+  --callout-label: "Warning";
 }
 
 .callout-caution {
-  --callout-accent: light-dark(#d1242f, #f85149);
+  --callout-color: light-dark(#d1242f, #f85149);
+  --callout-glyph: url("@primer/octicons/build/svg/stop-16.svg");
+  --callout-label: "Caution";
 }
