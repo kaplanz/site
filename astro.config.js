@@ -21,6 +21,7 @@ export default defineConfig({
   site: "https://zakhary.dev",
   integrations: [alpinejs(), markdown(), mdx(), sitemap()],
   publicDir: "www",
+  trailingSlash: "never",
   build: {
     format: "preserve",
   },
