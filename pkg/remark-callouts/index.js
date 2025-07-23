@@ -60,7 +60,7 @@ export default function remarkCallouts() {
             data: {
               hName: "blockquote",
               hProperties: {
-                className: `callout callout-${type.toLowerCase()}`,
+                className: `callout ${type.toLowerCase()}`,
               },
             },
           },
