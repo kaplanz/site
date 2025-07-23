@@ -65,7 +65,7 @@ const { food } = Astro.props;
         ))}
       </ol>
       {food.data.body.notes && (
-        <blockquote id="notes" class="callout callout-note">
+        <blockquote id="notes" class="callout note">
           <Markdown of={food.data.body.notes}/>
         </blockquote>
       )}
