@@ -49,7 +49,7 @@ export default defineConfig({
         rehypeShiki,
         {
           themes: {
-            light: "everforest-light",
+            light: "solarized-light",
             dark: "everforest-dark",
           },
           defaultColor: "light-dark()",
