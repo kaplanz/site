@@ -26,7 +26,7 @@ export async function GET(context) {
       link: `/blog/${post.slug}`,
       pubDate: post.data.created,
       title: post.data.title,
-      description: post.data.description.trim(),
+      description: post.data.description?.trim(),
       content: sanitizeHtml(post.rendered?.html),
     })),
   });
