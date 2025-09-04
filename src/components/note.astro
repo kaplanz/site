@@ -5,27 +5,21 @@ const { Content } = await note.render();
 
 const date = new Date(1000 * Number.parseInt(note.slug, 16));
 const tags = note.data.tags;
+
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+
+dayjs.extend(relativeTime);
 ---
-
-<script>
-  import dayjs from "dayjs";
-  import relativeTime from "dayjs/plugin/relativeTime";
-
-  dayjs.extend(relativeTime);
-
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll("time[datetime]").forEach(el => {
-      el.innerText = dayjs(el.getAttribute("datetime")).fromNow()
-    })
-  });
-</script>
 
 <article class="note" id={note.slug}>
   <header>
     <img class="user" src="/img/profile.png"/>
     <div class="info">
       <span class="name">@zakhary.dev</span>
-      <time datetime={date.toISOString()} title={date}></time>
+      <time datetime={date.toISOString()} title={date}>
+        {dayjs(date).fromNow()}
+      </time>
     </div>
     {tags && (
       <div class="tags">
