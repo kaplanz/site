@@ -14,14 +14,14 @@
     "check": "biome check --write ."
   },
   "dependencies": {
-    "@astrojs/alpinejs": "^0.4.8",
-    "@astrojs/mdx": "4.3.4",
+    "@astrojs/alpinejs": "0.4.9",
+    "@astrojs/mdx": "4.3.5",
     "@astrojs/rss": "4.0.12",
-    "@astrojs/sitemap": "3.5.1",
+    "@astrojs/sitemap": "3.6.0",
     "@astropub/md": "^1.0.0",
     "@biomejs/biome": "^2.1.2",
     "@shikijs/rehype": "^3.8.1",
-    "astro": "5.13.3",
+    "astro": "5.13.8",
     "dayjs": "^1.11.13",
     "lit": "^3.3.1",
     "rehype-autolink-headings": "^7.1.0",
