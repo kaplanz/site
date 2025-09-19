@@ -1,7 +1,9 @@
 ---
+import Page from "../layouts/page.astro";
+
 import { getCollection } from "astro:content";
 
-import Page from "../layouts/page.astro";
+import dayjs from "dayjs";
 
 const frontmatter = {
   title: "Tags",
@@ -30,7 +32,10 @@ const tags = posts.reduce((tags, post) => {
       <ul class="blog">
         {posts.map(post => (
           <li class="post">
-            <span class="date">{post.data.created.toLocaleDateString()}</span>
+            <time
+              datetime={post.data.created.toISOString()}
+              title={post.data.created}
+              >{dayjs(post.data.created).format("DD MMM YYYY")}</time>
             <a href=`/blog/${post.slug}`>
               <span class="title" id={post.slug}>{post.data.title}</span>
             </a>
