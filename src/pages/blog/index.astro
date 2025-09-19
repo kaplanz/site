@@ -1,8 +1,11 @@
 ---
-import { getCollection } from "astro:content";
-
 import Meta from "../../components/meta.astro";
 import Page from "../../layouts/page.astro";
+
+import { getCollection } from "astro:content";
+import { markdown } from "@astropub/md";
+
+import * as cheerio from "cheerio";
 
 const frontmatter = {
   title: "Blog",
@@ -15,6 +18,16 @@ const frontmatter = {
 const posts = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.created.valueOf() - a.data.created.valueOf());
+
+// Compute post summaries
+for (const post of posts) {
+  // Render body to markdown
+  const body = await markdown(post.body);
+  // Parse document from HTML
+  const $ = cheerio.load(body.toString(), null, false);
+  // Extract first paragraph
+  post.summary = $("p").first().text();
+}
 ---
 
 <Page {...frontmatter}>
@@ -32,7 +45,7 @@ const posts = (await getCollection("blog"))
         </header>
         <section>
           <p>
-            {post.data.description}
+            {post.data.description || post.summary}
           </p>
         </section>
       </article>

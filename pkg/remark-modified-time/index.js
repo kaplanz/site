@@ -4,6 +4,8 @@ export default function remarkModifiedTime() {
   return (_, file) => {
     // Use git to check the last modified time for the current file
     const path = file.history[0];
+    if (path === undefined)
+      return;
     const date = Date.parse(
       execSync(`git log -1 --pretty="format:%cI" "${path}"`).toString(),
     );
