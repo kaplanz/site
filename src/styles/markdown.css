@@ -1,6 +1,6 @@
 /* imports */
 @import "remark-callouts/style";
-@import "remark-sidenotes/style";
+@import "remark-inline-footnotes/style";
 
 /* rehype-autolink-headings */
 h1,
@@ -41,8 +41,8 @@ h6 {
   }
 }
 
-/* remark-sidenotes */
-.sidenote {
+/* remark-inline-footnotes */
+.footnote {
   > label,
   > span::before {
     color: var(--accent);

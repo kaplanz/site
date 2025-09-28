@@ -12,9 +12,9 @@ import rehypeSlug from "rehype-slug";
 import rehypeExternalLinks from "rehype-external-links";
 import remarkCallouts from "remark-callouts";
 import remarkDeflist from "remark-deflist";
+import remarkInlineFootnotes from "remark-inline-footnotes";
 import remarkModifiedTime from "remark-modified-time";
 import remarkReadingTime from "remark-reading-time";
-import remarkSidenotes from "remark-sidenotes";
 
 // https://astro.build/config
 export default defineConfig({
@@ -59,9 +59,9 @@ export default defineConfig({
     remarkPlugins: [
       remarkCallouts,
       remarkDeflist,
+      remarkInlineFootnotes,
       remarkModifiedTime,
       remarkReadingTime,
-      remarkSidenotes,
     ],
   },
 });
