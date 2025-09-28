@@ -1,12 +1,12 @@
 :root {
-  counter-reset: sidenote;
+  counter-reset: footnote;
 }
 
-.sidenote {
-  counter-increment: sidenote;
+.footnote {
+  counter-increment: footnote;
 
   > label::before {
-    content: counter(sidenote);
+    content: counter(footnote);
 
     vertical-align: super;
 
@@ -39,7 +39,7 @@
     inline-size: 100%;
 
     &::before {
-      content: counter(sidenote);
+      content: counter(footnote);
 
       align-self: stretch;
 
