@@ -23,7 +23,7 @@
     "@astropub/md": "^1.0.0",
     "@biomejs/biome": "^2.1.2",
     "@shikijs/rehype": "^3.8.1",
-    "astro": "5.13.8",
+    "astro": "5.14.3",
     "cheerio": "^1.1.2",
     "dayjs": "^1.11.13",
     "lit": "^3.3.1",
