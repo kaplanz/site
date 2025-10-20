@@ -1,11 +1,11 @@
 ---
-import Note from "../components/note.astro";
 import Base from "../layouts/base.astro";
+
+import Note from "../components/note.astro";
+import Post from "../components/post.astro";
 
 import { getCollection } from "astro:content";
 import { Markdown } from "@astropub/md";
-
-import dayjs from "dayjs";
 
 // Get most recent note
 const note = (await getCollection("note"))
@@ -13,11 +13,11 @@ const note = (await getCollection("note"))
   .sort((a, b) => b.time - a.time)
   .shift();
 
-// Collect sorted posts
-const posts = (await getCollection("blog"))
+// Get most recent post
+const post = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.created.valueOf() - a.data.created.valueOf())
-  .slice(0, 3);
+  .shift();
 ---
 
 <Base>
@@ -51,17 +51,7 @@ enthusiast.
     <section>
       <h2>Articles</h2>
       <ul class="blog">
-        {posts.map(post => (
-          <li class="post">
-            <time
-              datetime={post.data.created.toISOString()}
-              title={post.data.created}
-              >{dayjs(post.data.created).format("DD MMM YYYY")}</time>
-            <a href=`/blog/${post.slug}`>
-              <span class="title" id={post.slug}>{post.data.title}</span>
-            </a>
-          </li>
-        ))}
+        <Post {post}/>
       </ul>
       <a href="/blog/">&rsaquo; more</a>
     </section>
