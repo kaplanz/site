@@ -13,11 +13,11 @@ const note = (await getCollection("note"))
   .sort((a, b) => b.time - a.time)
   .shift();
 
-// Get most recent post
-const post = (await getCollection("blog"))
+// Collect recent posts
+const posts = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.created.valueOf() - a.data.created.valueOf())
-  .shift();
+  .slice(0, 3);
 ---
 
 <Base>
@@ -51,7 +51,9 @@ enthusiast.
     <section>
       <h2>Articles</h2>
       <ul class="blog">
-        <Post {post}/>
+        {posts.map(post => (
+          <Post {post}/>
+        ))}
       </ul>
       <a href="/blog/">&rsaquo; more</a>
     </section>
@@ -65,6 +67,14 @@ enthusiast.
 
     border: 6px solid var(--banner);
     border-radius: 100%;
+  }
+
+  ul.blog {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    padding: 0;
   }
 
   :global(article.note) {
