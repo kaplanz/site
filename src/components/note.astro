@@ -134,10 +134,17 @@ dayjs.extend(relativeTime);
 
       background: var(--darken);
 
-      font-size: .9em;
+      a {
+        padding: 0 4px;
+        margin: 0;
 
-      a:hover {
-        border-radius: 3px 0;
+        &::before {
+          margin: 0;
+        }
+
+        &:hover {
+          border-radius: 3px 0;
+        }
       }
     }
   }
