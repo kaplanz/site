@@ -14,7 +14,15 @@ const crumb = Astro.url.pathname.match(/(^\/)|[^\/]+\/?/g).reduce(
 ---
 
 <nav class="crumb">
+  <img src="https://cdn.zakhary.dev/icons/comp.gray.png"/>
   <ul>
     {crumb.map(page => <li><a href={page.url}>{page.txt}</a></li>)}
   </ul>
 </nav>
+
+<style>
+  nav {
+    display: flex;
+    gap: 1ch;
+  }
+</style>
