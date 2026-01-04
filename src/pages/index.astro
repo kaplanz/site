@@ -44,12 +44,16 @@ enthusiast.
       `}/>
     </section>
     <section>
-      <h2>Thoughts</h2>
+      <h2 id="note">
+        <a class="anchor" rel="nofollow" href="#note">Thoughts</a>
+      </h2>
       <Note {note}/>
       <a href="/note/">&rsaquo; more</a>
     </section>
     <section>
-      <h2>Articles</h2>
+      <h2 id="blog">
+        <a class="anchor" rel="nofollow" href="#blog">Articles</a>
+      </h2>
       <ul class="blog">
         {posts.map(post => (
           <Post {post}/>
