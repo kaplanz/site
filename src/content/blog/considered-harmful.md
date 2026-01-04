@@ -1,8 +1,5 @@
 ---
 title: Harmful Practices Considered Best
-description: >
-  A mild critique of the nature of "best practices" and "considered harmful"
-  manifestos.
 created: 2024-11-18 18:45
 updated: 2025-07-07 23:00
 tags: [dev]

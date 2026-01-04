@@ -15,7 +15,7 @@ import Base from "../../layouts/base.astro";
 
 export async function getStaticPaths() {
   const notes = await getCollection("note");
-  return notes.map((note) => ({
+  return notes.map(note => ({
     params: { note: note.slug },
     props: { note },
   }));

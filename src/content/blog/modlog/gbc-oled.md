@@ -4,8 +4,8 @@ created: 2025-07-27 12:00
 tags: [game-boy, modding]
 ---
 
-I recently bought and modded my Game Boy Color with [Hispeedido][dev]'s [AMOLED
-Display Kit][kit]. In this post I will document the process and my experience.
+Let's upgrade my Game Boy Color with [Hispeedido][dev]'s [AMOLED Display
+Kit][kit]. This post will be a brief description of the parts and process.
 
 ## Parts
 

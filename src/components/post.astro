@@ -40,19 +40,40 @@ post.summary = $("p").first().text();
     box-shadow: 2px 2px 1px var(--shadow);
 
     background: var(--darken);
-    padding-inline: 1em;
+    padding: 8px;
     box-sizing: content-box;
 
-    h1 {
-      font-size: 1.6em;
+    header {
+      h1 {
+        font-size: 1.6em;
+      }
+
+      a:not(:hover) {
+        text-decoration-color: transparent;
+      }
+
+      .title {
+        font: inherit;
+      }
     }
 
-    a:not(:hover) {
-      text-decoration-color: transparent;
+    section {
+      border: inherit;
+      border-width: 1px;
+      border-radius: 4px;
+
+      background: var(--backgd);
+      padding: inherit;
+
+      font-size: .9em;
     }
 
-    .title {
-      font: inherit;
+    :first-child {
+      margin-block-start: 0;
+    }
+
+    :last-child {
+      margin-block-end: 0;
     }
   }
 </style>

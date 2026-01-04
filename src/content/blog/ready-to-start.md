@@ -1,9 +1,8 @@
 ---
 title: Ready to Start
 description: >
-  My first ever blog post! This post is mostly just one of those scrap pieces of
-  paper where you doodle to brainstorm ideas, as such, it may be a bit of a
-  mess.
+  My first ever blog post; mostly just one of those scrap pieces of paper where
+  you doodle to brainstorm ideas, as such, it may be a bit of a mess.
 created: 2024-10-28 19:20
 updated: 2024-10-29 23:40
 tags: [meta]

@@ -22,7 +22,7 @@ export async function GET(context) {
     trailingSlash: false,
     // Array of `<item>`s in output xml
     // See "Generating items" section for examples using content collections and glob imports
-    items: posts.map((post) => ({
+    items: posts.map(post => ({
       link: `/blog/${post.slug}`,
       pubDate: post.data.created,
       title: post.data.title,

@@ -6,8 +6,8 @@ import Base from "../../layouts/base.astro";
 
 export async function getStaticPaths() {
   return (await getCollection("blog"))
-    .filter((post) => !post.data.draft)
-    .map((post) => ({
+    .filter(post => !post.data.draft)
+    .map(post => ({
       params: { post: post.slug },
       props: { post },
     }));
@@ -25,6 +25,7 @@ const { Content } = await post.render();
       </h1>
       <Meta {...post.data}/>
     </header>
+    <hr/>
     <section>
       <Content/>
     </section>
