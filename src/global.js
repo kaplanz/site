@@ -28,3 +28,42 @@ export const media = {
     tint: "#d3896c",
   },
 };
+
+// Buttons.
+export const retro = [
+  {
+    src: "built-with-eleventy.gif",
+    alt: "Build with Eleventy",
+    ref: "https://11ty.dev",
+  },
+  {
+    src: "made-with-neovim.gif",
+    alt: "Made with Neovim",
+    ref: "https://neovim.io",
+  },
+  {
+    src: "powered-by-void.gif",
+    alt: "Powered by Void",
+    ref: "https://voidlinux.org",
+  },
+  {
+    src: "email.gif",
+    alt: "Questions or Comments? E-Mail!",
+    ref: "/contact",
+  },
+  {
+    src: "canadian.gif",
+    alt: "Canadian on the web",
+    ref: "/about",
+  },
+  {
+    src: "game-boy-color.gif",
+    alt: "Game Boy Color",
+    ref: "https://rugby.zakhary.dev",
+  },
+  {
+    src: "spamton.gif",
+    alt: "[[Number 1 Rated Salesman1997]]",
+    ref: "https://deltarune.com",
+  },
+];
