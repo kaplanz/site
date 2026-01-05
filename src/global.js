@@ -57,9 +57,9 @@ export const retro = [
     ref: "/about",
   },
   {
-    src: "game-boy-color.gif",
-    alt: "Game Boy Color",
-    ref: "https://rugby.zakhary.dev",
+    src: "game-boy.gif",
+    alt: "Game Boy",
+    ref: "/blog/gbc-web-button",
   },
   {
     src: "spamton.gif",
