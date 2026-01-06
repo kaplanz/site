@@ -1,6 +1,7 @@
 ---
 title: GBC Boot Animation 88×31 Web Button
 created: 2026-01-04 23:30
+updated: 2026-01-05 20:30
 tags: [game-boy, 88x31, magick]
 ---
 
@@ -625,6 +626,20 @@ magick animation.gif \
     button.gif
 ```
 
+## Optimization
+
+One last thing before I let the class go.
+
+Since several of the 175 frames in the final animation are repeated, the file
+size can be greatly reduced by instead only storing changes between each frame.
+
+```shell
+magick button.gif -layers OptimizeTransparency optimized.gif
+```
+
+Doing this decreases the file size from 170.85 KiB down to 61.02 KiB, a 64%
+reduction!
+
 ## Conclusion
 
 As someone who doesn't have an artistic bone in my body (doctor's diagnosis), I
@@ -635,7 +650,7 @@ appreciated regardless.
 
 <figure>
   <img
-    src="/img/usr/abc6e97e.gif"
+    src="/img/usr/d0281820.gif"
     alt="Game Boy Color boot animation web button"
   />
   <figcaption>
