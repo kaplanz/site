@@ -1,0 +1,66 @@
+---
+layout: base
+article: |
+  Hey, I'm Zakhary.[^spell] I'm a computer architect and retro-computer[^dmgbc]
+  enthusiast.
+
+  [^spell]: Note the ✨ _unique_ ✨ spelling. Most people spell it wrong, but I
+    don't really mind at this point. I personally believe I use a spelling most
+    phonetically similar to the name's origin, זכריה, which you can also call me
+    if you can pronounce `χ`[^phone] properly.
+  [^phone]: That's a [voiceless uvular fricative][wiki:vuf]
+  [^dmgbc]: But mostly the Nintendo Game Boy, which I didn't actually have growing
+    up.
+
+  [wiki:vuf]: https://en.wikipedia.org/wiki/Voiceless_uvular_fricative
+---
+
+<article class="home">
+  <section>
+    <img
+      class="prof"
+      src="/user.png"
+      alt="A low-resolution photo with my cat taken on the Game Boy Camera"
+    />
+    {{ article | markdown | safe }}
+  </section>
+  <section>
+    <h2>Thoughts</h2>
+    {% set note = collections.note | first %}
+    {% if note %}
+      {% include "widget/note.njk" %}
+    {% endif %}
+    <a href="/note/">&rsaquo; more</a>
+  </section>
+  <section>
+    <h2>Articles</h2>
+    <section class="blog">
+      {% for post in collections.blog | take(3) %}
+        {% include "widget/post.njk" %}
+      {% endfor %}
+    </section>
+    <a href="/blog/">&rsaquo; more</a>
+  </section>
+</article>
+
+<style>
+  .home {
+    section.blog {
+      padding: 0;
+    }
+
+    article.note,
+    section.blog {
+      margin: 1em auto;
+    }
+
+    img.prof {
+      display: block;
+      margin: 1em auto;
+      border: 6px solid var(--banner);
+      border-radius: 50%;
+      aspect-ratio: 1;
+      inline-size: 120px;
+    }
+  }
+</style>

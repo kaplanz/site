@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+
+<head>
+  {% include "widget/head.njk" %}
+</head>
+
+<body>
+  {% include "widget/header.njk" %}
+
+  <main>
+    {% include "widget/navbar.njk" %}
+    {{ content | safe }}
+  </main>
+
+  {% include "widget/footer.njk" %}
+  {% include "widget/symbol.njk" %}
+</body>
+
+</html>

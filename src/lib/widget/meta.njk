@@ -1,0 +1,61 @@
+<aside class="meta">
+  {# created date #}
+  {% if created %}
+    <span class="item" title="{{ created }}">
+      <svg class="icon" viewBox="0 0 16 16" width="16" height="16">
+        <use fill="currentColor" href="#icon:date"></use>
+      </svg>
+      <span>{{ created | dated("DD MMM YYYY") }}</span>
+    </span>
+  {% endif %}
+  {# updated date #}
+  {% if updated %}
+    <span class="item" title="{{ updated }}">
+      <svg class="icon" viewBox="0 0 16 16" width="16" height="16">
+        <use fill="currentColor" href="#icon:edit"></use>
+      </svg>
+      <span>{{ updated | dated("DD MMM YYYY") }}</span>
+    </span>
+  {% endif %}
+  {# reading time #}
+  {% set readingTime = content | readingTime | round %}
+  {% if readingTime %}
+    <span class="item">
+      <svg class="icon" viewBox="0 0 16 16" width="16" height="16">
+        <use fill="currentColor" href="#icon:time"></use>
+      </svg>
+      <span>{{ readingTime }} min read</span>
+    </span>
+  {% endif %}
+  {% if tags %}
+    {% include "widget/tags.njk" %}
+  {% endif %}
+</aside>
+
+<style>
+  aside.meta {
+    display: flex;
+    flex-flow: row wrap;
+    row-gap: 1ch;
+    margin-block-start: .5em;
+    font-size: .75em;
+
+    > .item {
+      display: flex;
+
+      &:not(:last-of-type)::after {
+        content: "\2022";
+        margin: 0 8px;
+      }
+    }
+
+    .icon {
+      line-height: inherit;
+      margin: 0 4px 0 0;
+    }
+
+    div.tags {
+      margin-inline-start: auto;
+    }
+  }
+</style>

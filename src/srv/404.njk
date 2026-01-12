@@ -1,0 +1,44 @@
+---
+layout: base
+title: "404"
+permalink: /404.html
+eleventyExcludeFromCollections: true
+---
+
+<article class="error">
+  <header>
+    <h1>404</h1>
+    <h2>Not Found</h2>
+  </header>
+  <section>
+    This isn't the page you're looking for :(
+  </section>
+</article>
+
+<style>
+  article.error {
+    display: flex;
+    flex-direction: column;
+    flex: inherit;
+    place-items: center;
+    place-content: center;
+    text-align: center;
+
+    header {
+      margin: 2em;
+
+      > * {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 4em;
+        line-height: 1;
+      }
+
+      h2 {
+        font: bold 1.2em var(--sans);
+      }
+    }
+  }
+</style>

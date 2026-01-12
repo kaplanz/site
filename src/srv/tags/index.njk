@@ -1,0 +1,57 @@
+---
+title: Tags
+---
+
+<ul class="tags">
+  {% for tag in collections | tags | sort %}
+    <li>
+      <a href="/tags/{{ tag | slugify }}">
+        <span id="tag:{{ tag | slugify }}" class="tag">#{{ tag }}</span>
+        <span class="count">{{ collections[tag] | length }}</span>
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+
+<style>
+  ul.tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5ch;
+    margin: 1em 0;
+    padding: 0;
+
+    li a {
+      display: flex;
+      align-items: center;
+      gap: .5ch;
+
+      background: var(--darken);
+      border: 2px solid var(--darker);
+      border-radius: 8px;
+      padding: 3px 6px;
+
+      text-decoration: none;
+
+      .count {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        background: var(--backgd);
+        border: 1px solid var(--darker);
+
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+
+        block-size: 1.5em;
+
+        font-size: .7em;
+        font-weight: bold;
+
+        transition: background .2s;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,64 @@
+---
+layout: false
+title: Sitemap
+permalink: /sitemap.xsl
+article: |
+  > [!NOTE]
+  >
+  > This page is a styled version of the XML sitemap, which lists the publicly
+  > hosted pages on this website. If you want a more human-friendly way to
+  > explore the site, I recommend you instead visit the [explore] page.
+  >
+  > [&rarr; Return to site](/)
+  >
+  > [explore]: /slashes
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet
+  version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:sm="http://www.sitemaps.org/schemas/sitemap/0.9"
+>
+
+<xsl:output method="html" indent="yes"/>
+<xsl:template match="/">
+  <html lang="{{ site.lang }}">
+
+  <head>
+    {% include "widget/head.njk" %}
+  </head>
+
+  <body>
+    <main>
+      <header>
+        <h1>{{ title }}</h1>
+      </header>
+      <article>
+        {{ article | markdown | safe }}
+        <table>
+          <tr>
+            <th>URL</th>
+            <th>Last Modified</th>
+          </tr>
+          <xsl:for-each select="sm:urlset/sm:url">
+            <tr>
+              <td>
+                <a href="{sm:loc}">
+                  <xsl:value-of select="sm:loc"/>
+                </a>
+              </td>
+              <td>
+                <xsl:value-of select="sm:lastmod"/>
+              </td>
+            </tr>
+          </xsl:for-each>
+        </table>
+      </article>
+    </main>
+  </body>
+
+  </html>
+</xsl:template>
+
+</xsl:stylesheet>

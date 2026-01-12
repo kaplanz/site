@@ -1,0 +1,26 @@
+<div class="tags">
+  <a href="/tags/">
+    <svg class="icon" viewBox="0 0 16 16" width="16" height="16">
+      <use fill="currentColor" href="#icon:tags"></use>
+    </svg>
+  </a>
+  <span class="list">
+    {% for tag in tags %}
+      <a class="tag" href="/tags/{{ tag | slugify }}">#{{ tag }}</a>
+    {% endfor %}
+  </span>
+</div>
+
+<style>
+  div.tags {
+    display: inline-flex;
+    gap: 4px;
+
+    .list {
+      display: inline-flex;
+      flex: 1 1 0;
+      gap: 4px;
+      block-size: min-content;
+    }
+  }
+</style>

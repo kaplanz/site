@@ -1,0 +1,41 @@
+<footer>
+  <section class="refs">
+    <span class="item">
+      <a href="/privacy">Privacy</a>
+    </span>
+    <span class="item">
+      <a href="/slashes">Slashes</a>
+    </span>
+    <span class="item">
+      <a href="/sitemap.xml">Sitemap</a>
+    </span>
+  </section>
+    {% include "widget/button.njk" %}
+  <section class="copy">
+    <small>&copy; {{ build.date | dated("YYYY") }} {{ site.author.name }}</small>
+  </section>
+</footer>
+
+<style>
+  body > footer {
+    .refs {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+
+      > span.item {
+        display: flex;
+        font-weight: bolder;
+
+        &:not(:last-of-type)::after {
+          content: "\2022";
+          margin: 0 6px;
+        }
+      }
+
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+</style>
