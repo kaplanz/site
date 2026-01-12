@@ -1,0 +1,28 @@
+<section class="btns">
+  {% for item in button %}
+    <a href="{{ item.ref }}" rel="nofollow" target="_blank">
+      <img src="/assets/img/88x31/{{ item.src }}" alt="{{ item.alt }}"/>
+    </a>
+  {% endfor %}
+</section>
+
+<style>
+  section.btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: center;
+    max-inline-size: 576px;
+    margin-inline: auto;
+
+    a {
+      block-size: fit-content;
+    }
+
+    img {
+      display: block;
+      image-rendering: pixelated;
+      border-radius: 0;
+    }
+  }
+</style>

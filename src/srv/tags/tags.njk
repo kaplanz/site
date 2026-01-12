@@ -1,0 +1,62 @@
+---
+layout: base
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+  - all
+permalink: /tags/{{ tag | slugify }}.html
+eleventyComputed:
+  title: "#{{ tag }}"
+eleventyExcludeFromCollections: true
+---
+
+{% set created = item.data.created %}
+
+<header>
+  <h1>
+    <span id="tag:{{ tag | slugify }}" class="tag" href="/tags/{{ tag | slugify }}">#{{ tag }}</span>
+  </h1>
+</header>
+<article>
+  <ul class="tagged">
+    {% for item in collections[ tag ]
+      | sort(reverse=true, attribute="data.created")
+    %}
+      <li>
+        {% set created = item.data.created %}
+        <time datetime="{{ created | dated }}">
+          {{- created | dated("DD MMM YYYY") -}}
+        </time>
+        <a href="{{ item.url }}">
+          <span id="post:{{ item.fileSlug }}" class="title">{{ item.data.title }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p>See <a href="/tags/">all tags</a>.</p>
+</article>
+
+<style>
+  ul.tagged {
+    gap: .5em;
+
+    li {
+      gap: 1ch;
+      align-items: baseline;
+
+      time {
+        font: .8em var(--mono);
+        background: oklch(from var(--teal) l c h / .4);
+        border-radius: 4px;
+        padding: 0 2px;
+      }
+
+      .title {
+        font: 1em var(--serif);
+      }
+    }
+  }
+</style>

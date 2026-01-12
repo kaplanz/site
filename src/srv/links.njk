@@ -1,0 +1,68 @@
+---
+title: Links
+article: >
+  Since I don't really use traditional social media, this page is a collection
+  of "likes" from across the internet. This mostly started from my being unhappy
+  with existing bookmark managing tools. What's the point of collecting links if
+  they're private and no one ever sees them?
+---
+
+<section class="likes">
+  {{ article | markdown | safe }}
+  <hr/>
+  <ul id="likes"></ul>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", async () => {
+    const likes = await fetch("https://api.zakhary.dev/likes")
+      .then(r => r.json());
+
+    // Sort by date
+    likes.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
+
+    // Render
+    document.getElementById("likes").innerHTML = likes.map(item => `
+      <li>
+        <div>
+          <a href="${item.link}" target="_blank">${item.name || item.link}</a>
+        </div>
+        <aside class="tags">
+          ${(item.tags || []).map(tag => `<span>#${tag}</span>`).join("")}
+        </aside>
+      </li>
+    `).join("");
+  });
+</script>
+
+<style>
+  .likes {
+    aside.tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    ul#likes {
+      list-style: none;
+      padding: 0;
+
+      li {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        border: 2px solid var(--darker);
+        border-radius: 8px;
+        background: var(--darken);
+        margin-block: .5em;
+        padding: .5em 1em;
+
+        a {
+          font-family: var(--serif);
+          font-weight: normal;
+        }
+      }
+    }
+  }
+</style>

@@ -1,0 +1,110 @@
+{% set created = note.data.created %}
+{% set tags = note.data.tags %}
+
+<article class="note" id="note:{{ note.fileSlug }}">
+  <header>
+    <img class="user" src="/user.png" alt=""/>
+    <div class="info">
+      <span class="name">@zakhary.dev</span>
+      <time datetime="{{ created | dated }}">{{ created | since }}</time>
+    </div>
+    {% if tags %}
+      {% include "widget/tags.njk" %}
+    {% endif %}
+  </header>
+  <section>
+    {{ note.content | safe }}
+  </section>
+  <aside class="link">
+    <a target="_self" href="/note/{{ note.fileSlug }}"></a>
+  </aside>
+</article>
+
+<style>
+  article.note {
+    counter-reset: footnote;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    position: relative;
+    box-sizing: border-box;
+    block-size: fit-content;
+    max-inline-size: 100%;
+    margin: 0;
+    border: 2px solid var(--darker);
+    border-radius: 8px;
+    box-shadow: 2px 2px 1px var(--shadow);
+    background: var(--darken);
+    padding: 8px;
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      img.user {
+        aspect-ratio: 1;
+        block-size: 32px;
+        border-radius: 100%;
+        object-fit: cover;
+      }
+
+      div.info {
+        display: flex;
+        flex-direction: column;
+
+        span.name {
+          font: 500 .8em var(--sans);
+        }
+
+        time {
+          font: 200 .6em var(--sans);
+        }
+      }
+
+      div.tags {
+        font-size: .75em;
+        margin-inline-start: auto;
+      }
+    }
+
+    section {
+      border: inherit;
+      border-width: 1px;
+      border-radius: 4px;
+      background: var(--backgd);
+      padding: inherit;
+      font-size: .9em;
+
+      :first-child {
+        margin-block-start: 0;
+      }
+
+      :last-child {
+        margin-block-end: 0;
+      }
+    }
+
+    aside.link {
+      position: absolute;
+      inset-block-end: 8px;
+      inset-inline-end: 8px;
+      border: 1px solid var(--darker);
+      border-radius: 4px 0;
+      background: var(--darken);
+
+      a {
+        padding: 0 4px;
+        margin: 0;
+
+        &::before {
+          margin: 0;
+        }
+
+        &:hover {
+          border-radius: 3px 0;
+        }
+      }
+    }
+  }
+</style>

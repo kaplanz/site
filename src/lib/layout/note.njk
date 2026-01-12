@@ -1,0 +1,22 @@
+---
+layout: base
+---
+
+{% set note = {
+  fileSlug: page.fileSlug,
+  content: content,
+  data: {
+    title: title,
+    created: created,
+    tags: tags
+  }
+} %}
+
+<header>
+  <span style="font: normal 1.2em var(--sans); margin: 1em 0; display: block;">
+    {{ created | dated }}
+  </span>
+</header>
+<section style="display: flex; flex: inherit; place-items: center; place-content: center;">
+  {% include "widget/note.njk" %}
+</section>

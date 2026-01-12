@@ -1,0 +1,96 @@
+---
+layout: false
+title: Feed (Atom)
+permalink: /atom.xsl
+eleventyExcludeFromCollections: true
+article: |
+  > [!NOTE]
+  >
+  > This page is an **Atom feed**. You can subscribe by copying the URL into your
+  > RSS reader of choice to receive updates automatically whenever I publish new
+  > content.
+  >
+  > [&rarr; Return to site](/)
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet
+  version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+>
+
+<xsl:output method="html" indent="yes"/>
+<xsl:template match="/atom:feed">
+  <html lang="{{ site.lang }}">
+
+  <head>
+    {% include "widget/head.njk" %}
+  </head>
+
+  <body>
+    <main>
+      <header>
+        <h1>{{ title }}</h1>
+        <p><xsl:value-of select="atom:subtitle"/></p>
+      </header>
+
+      <article>
+        {{ article | markdown | safe }}
+
+        <h2>Recents</h2>
+        <ul>
+          <xsl:for-each select="atom:entry">
+            <li>
+              <h3>
+                <a href="{atom:link[@rel='alternate']/@href}">
+                  <xsl:value-of select="atom:title"/>
+                </a>
+              </h3>
+
+              <small>
+                <span>Published: </span>
+                <xsl:value-of select="atom:published"/>
+                <xsl:if test="not(atom:published)">
+                  <xsl:value-of select="atom:updated"/>
+                </xsl:if>
+              </small>
+            </li>
+          </xsl:for-each>
+
+        </ul>
+      </article>
+    </main>
+  </body>
+
+  <style>
+    article > ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        border: 2px solid var(--darker);
+        border-radius: 8px;
+        box-shadow: 2px 2px 1px var(--shadow);
+        background: var(--darken);
+        padding: 8px;
+        box-sizing: content-box;
+
+        h3 {
+          font-size: 1.2em;
+        }
+
+        h3, p {
+          margin: 0;
+        }
+      }
+    }
+  </style>
+
+  </html>
+</xsl:template>
+
+</xsl:stylesheet>

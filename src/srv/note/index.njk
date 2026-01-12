@@ -1,0 +1,23 @@
+---
+layout: page
+title: Thoughts
+about: >
+  My thoughts on whatever I find interesting at the moment. Warranty not
+  included.
+---
+
+<p>{{ about }}</p>
+<section class="feed">
+  {% for note in collections.note %}
+    {% include "widget/note.njk" %}
+  {% endfor %}
+</section>
+
+<style>
+  section.feed {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+  }
+</style>
