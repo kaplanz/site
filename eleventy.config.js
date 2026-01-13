@@ -24,6 +24,9 @@ import markdownItAnchor from "markdown-it-anchor";
 import markdownItGithubAlerts from "markdown-it-github-alerts";
 import markdownItInlineFootnotes from "markdown-it-inline-footnotes";
 
+// transforms
+import { transform } from "lightningcss";
+
 // metadata
 const site = {
   title: "Zakhary's Site",
@@ -71,6 +74,20 @@ export default async function(cfg) {
   cfg.addBundle("css", {
     // Optional subfolder (relative to output directory) files will write to
     toFileDirectory: "assets/css",
+    // Modify bundle content
+    transforms: [
+      function(content) {
+        // type contains the bundle name.
+        let { page } = this;
+        let { code } = transform({
+          filename: page.inputPath,
+          code: Buffer.from(content),
+          minify: true,
+          sourceMap: true,
+        });
+        return code;
+      }
+    ],
     // Add all <style> content to `css` bundle
     //
     // (use <style eleventy:ignore> to opt-out)
