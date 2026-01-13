@@ -46,26 +46,28 @@ proud of this project and hope to continue to see it grow.
 [rugby-web]: https://rugby.zakhary.dev
 [libretro]: https://www.libretro.com
 
-## Education
-
-I earned my Bachelor's of Applied Science (BASc) in Computer Engineering from
-the University of Toronto from 2018 to 2023. During this degree I proudly
-achieved the honour of **Dean's List Scholar**[^dean] for all semesters, and
-was conferred with **High Honours**[^high] upon graduation.
-
-[^dean]: Awarded to students who obtained a semester course average of 80%.
-[^high]: Awarded for achieving a cumulative weighted average of 87.5% or higher
-  over second, third, and fourth years.
-
 ## Experience
+
+### Tenstorrent
+
+In a bit of a career shift (hardware &rarr; software), my role at Tenstorrent is
+now "Sr. Rust Developer." It's been amazing seeing Rust gain so much industry
+adoption since I learned the language in 2018, and now I get to experience it
+firsthand. Another huge boon has been working in a (almost) completely open
+source stack. Knowing I can concretely point to my work being publicly available
+online is makes me feel my impact is much more visible.
+
+However, as we are a computer hardware company, I am still working quite
+low-level, only on the opposite end of the silicon pipeline.
 
 ### Altera (formerly Intel)
 
-I'm currently employed as an FPGA Architect at Altera.[^altera] My team is
-primarily responsible for designing and modelling the architecture for our next
-generation FPGAs. My specific expertise is in simulation and analysis of wire
-delays within the fabric and clock subsystems. In practice, this means a lot of
-working on top of (but usually not directly with) SPICE.
+After graduating in 2023 until October 2025, I worked as an FPGA Architect at
+Altera.[^altera] My team was primarily responsible for designing and modelling
+the architecture for our next generation FPGAs. My specific expertise is in
+simulation and analysis of wire delays within the fabric and clock subsystems.
+In practice, this means a lot of working on top of (but usually not directly
+with) SPICE.
 
 [^altera]: Altera was formerly known as Intel's Programmable Solutions Group
   (pre-2025). Before that, it was formerly formerly Altera (pre-2015).
@@ -79,6 +81,17 @@ system, for which I created a transaction-level any cycle-accurate performance
 model to provide power estimates as part of the architecture's specification. I
 was involved in researching high-level synthesis (HLS) workflows for our team to
 help improve our time-to-market latency for upcoming IPs.
+
+## Education
+
+I earned my Bachelor's of Applied Science (BASc) in Computer Engineering from
+the University of Toronto from 2018 to 2023. During this degree I proudly
+achieved the honour of **Dean's List Scholar**[^dean] for all semesters, and
+was conferred with **High Honours**[^high] upon graduation.
+
+[^dean]: Awarded to students who obtained a semester course average of 80%.
+[^high]: Awarded for achieving a cumulative weighted average of 87.5% or higher
+  over second, third, and fourth years.
 
 ## Research
 
