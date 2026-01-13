@@ -16,28 +16,34 @@ title: Stuff I Use
 - **Docking**: CalDigit TS4
   - **Display**: 2&times; LG 27UP850N-W[^duals]
   - **Keyboard**: Keychron V1[^keebs]
-  - **Mouse**: Logitech Signature M650[^mouse]
+  - **Mouse**: Logitech MX Master 4[^mouse]
   - **Speaker**: Creative Pebble V2
   - **Webcam**: Anker PowerConf C200
 
 [^model]: The base model with **no upgrades** is all I feel most people need
     (unless you're doing audio/photo/video editing). If I were buying a laptop
     today I'd get the base MacBook Air.
-[^macos]: I'm an OS X/macOS user since 2013. I strongly believe modern Windows is
-    bloatware.
-[^linux]: Usually [Void Linux][void] given the choice. I generally prefer
+[^macos]: I'm an OS X/macOS user since 2013. I strongly believe modern Windows
+    is bloatware.
+[^linux]: Usually [Void Linux][voidlinux] given the choice. I generally prefer
     rolling releases and doing more things myself. I have aversion to `systemd`
     from something I read online ages ago, but don't have any real technical
     reasons with which I justify that preference.
-[^duals]: I don't believe in having more than 2 monitors. Fight me over it if you
-    want, but it doesn't work well for 99.9% of use-cases. (And no, your
+[^duals]: I don't believe in having more than 2 monitors. Fight me over it if
+    you want, but it doesn't work well for 99.9% of use-cases. (And no, your
     use-case is not in the 0.1%.)
 [^keebs]: I love the 75% layout, it has just the right amount of keys. Recently
     I've been eyeing a NuPhy.
-[^mouse]: Actively looking for something more ergonomic that won't break the
-    bank. Suggestions welcome!
+[^mouse]: Brief review: The hardware is fantastic, specifically the scroll
+    wheel, which is why I bought it in the first place. The software is [quite
+    literally unusable][logi:fail]. Given I have zero interest in the Actions
+    Ring, I didn't even bother trying [LogiOptions+][logi:plus] and went right
+    to [BetterMouse].
 
-[void]: https://voidlinux.org
+[bettermouse]: https://better-mouse.com
+[logi:fail]:   https://support.logi.com/hc/en-au/articles/37493733117847-Options-and-G-HUB-macOS-Certificate-Issue
+[logi:plus]:   https://www.logitech.com/en-ca/software/logi-options-plus.html
+[voidlinux]:   https://voidlinux.org
 
 ## Software
 
