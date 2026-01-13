@@ -21,16 +21,22 @@ title: Happening Now
 
 #### Code
 
-- **Emulator**: Working on my [Game Boy Emulator][rugby], specifically on the
-  iOS port. It now supports sound and save RAM files. I also want to finally
-  implement save states soon.
-- **Website**: In the process up porting this site to [Eleventy][11ty]. Will
-  probably update the styles a bit.
+- [**Emulator**][emu]: Taking a brief break. When I return I'll likely either
+  continue working the iOS port, bring back debugging to the CLI, or finally
+  implement save states.
+- [**Website**][site]: Just finished porting this site to [Eleventy][11ty]. I
+  should probably write the colophon now.
 
-[rugby]: https://rugby.zakhary.dev
+[emu]: https://rugby.zakhary.dev
+[site]: https://git.zakhary.dev/site
 [11ty]: https://11ty.dev
 
-[nnn]: https://nownownow.com/about
+##### Forge
+
+I've been considering either migrating to Codeberg or self-hosting my own git
+interface (probably something simpler, like [cgit]).
+
+[cgit]: https://git.zx2c4.com/cgit
 
 ---
 
