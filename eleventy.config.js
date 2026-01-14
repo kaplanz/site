@@ -26,6 +26,7 @@ import markdownItInlineFootnotes from "markdown-it-inline-footnotes";
 
 // transforms
 import { transform } from "lightningcss";
+import htmlnano from "htmlnano";
 
 // metadata
 const site = {
@@ -64,6 +65,19 @@ export default async function(cfg) {
     if (page.url.endsWith(".html")) {
       return page.url.slice(0, -1 * ".html".length);
     }
+  });
+
+  // Minify HTML
+  cfg.addTransform("html-minify",async (content, outputPath) => {
+    if (!outputPath?.endsWith(".html"))
+      return content;
+    const result = await htmlnano.process(content, {
+      minifyCss: false,
+      minifyJs:  false,
+      minifySvg: false,
+      collapseWhitespace: "aggressive"
+    });
+    return result.html;
   });
 
   // Per-page bundles
