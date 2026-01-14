@@ -24,6 +24,9 @@ of various pages of interest.
 [/books](/books)
 : My reading timeline and book lists.
 
+[/colophon](/colophon)
+: About the stack used to build this website.
+
 [/contact](/contact)
 : What's the best way to reach out.
 
@@ -41,11 +44,6 @@ of various pages of interest.
 
 [/uses](/uses)
 : Stuff (mostly tech) that I use daily.
-
-## Upcoming
-
-/colophon
-: About the stack used to build this website.
 
 <style>
   dl {
