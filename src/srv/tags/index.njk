@@ -16,41 +16,50 @@ title: Tags
 <style>
   ul.tags {
     list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: .5ch;
     margin: 1em 0;
     padding: 0;
 
-    li a {
-      display: flex;
-      align-items: center;
-      gap: .5ch;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: space-between;
 
-      background: var(--darken);
-      border: 2px solid var(--darker);
-      border-radius: 8px;
-      padding: 3px 6px;
+    &::after {
+      content: "";
+      flex: auto;
+    }
 
-      text-decoration: none;
-
-      .count {
+    li {
+      a {
         display: inline-flex;
         align-items: center;
-        justify-content: center;
+        gap: .5ch;
 
-        background: var(--backgd);
-        border: 1px solid var(--darker);
+        background: var(--darken);
+        border: 2px solid var(--darker);
+        border-radius: 8px;
+        padding: 3px 6px;
 
-        aspect-ratio: 1 / 1;
-        border-radius: 50%;
+        text-decoration: none;
 
-        block-size: 1.5em;
+        .count {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
 
-        font-size: .7em;
-        font-weight: bold;
+          background: var(--backgd);
+          border: 1px solid var(--darker);
 
-        transition: background .2s;
+          aspect-ratio: 1 / 1;
+          border-radius: 50%;
+
+          block-size: 1.5em;
+
+          font-size: .7em;
+          font-weight: bold;
+
+          transition: background .2s;
+        }
       }
     }
   }
