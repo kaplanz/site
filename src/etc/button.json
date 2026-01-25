@@ -15,26 +15,6 @@
     "ref": "https://voidlinux.org"
   },
   {
-    "src": "valid-atom.png",
-    "alt": "Valid ATOM",
-    "ref": "/atom.xml"
-  },
-  {
-    "src": "valid-rss.png",
-    "alt": "Valid RSS",
-    "ref": "/feed.xml"
-  },
-  {
-    "src": "valid-json.png",
-    "alt": "Valid JSON",
-    "ref": "/feed.json"
-  },
-  {
-    "src": "email.gif",
-    "alt": "Questions or Comments? E-Mail!",
-    "ref": "/contact"
-  },
-  {
     "src": "canadian.gif",
     "alt": "Canadian on the web",
     "ref": "/about"
@@ -50,8 +30,28 @@
     "ref": "https://deltarune.com"
   },
   {
+    "src": "email.gif",
+    "alt": "Questions or Comments? E-Mail!",
+    "ref": "/contact"
+  },
+  {
     "src": "by-nc-sa.png",
     "alt": "CC BY-NC-SA",
     "ref": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+  },
+  {
+    "src": "valid-atom.png",
+    "alt": "Valid ATOM",
+    "ref": "/atom.xml"
+  },
+  {
+    "src": "valid-rss.png",
+    "alt": "Valid RSS",
+    "ref": "/feed.xml"
+  },
+  {
+    "src": "valid-json.png",
+    "alt": "Valid JSON",
+    "ref": "/feed.json"
   }
 ]
