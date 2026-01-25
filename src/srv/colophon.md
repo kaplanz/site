@@ -11,14 +11,13 @@ dependency management and packaging.
 [mdit]: https://markdown-it.github.io
 
 Most of my deployments are hosted on a VPS instance from [Hetzner] (CAX11).
-Content is served as a static directory by [Caddy], which also as a reverse
-proxy for several other endpoints.
+[Caddy] serves content from static directory and also provides a reverse proxy
+for endpoints on this domain.
 
 [caddy]:   https://caddyserver.com
 [hetzner]: https://hetzner.cloud/?ref=hc4VDgJSNjAJ
 
-All of my domains are registered with [Porkbun], and use [Cloudflare] for DNS
-and as a reverse proxy.
+All my domains are registered with [Porkbun] and use [Cloudflare] for DNS.
 
 [cloudflare]: https://www.cloudflare.com
 [porkbun]:    https://porkbun.com
@@ -26,8 +25,7 @@ and as a reverse proxy.
 ## License
 
 Content on this site is licensed under [CC BY-NC-SA 4.0][cc40]. Source code is
-available under the [MIT License](./LICENSE). The source code is available on
-[GitHub][code].
+available under the [MIT License](./LICENSE).
 
 [cc40]: https://creativecommons.org/licenses/by-nc-sa/4.0/
 [code]: https://git.zakhary.dev/site
