@@ -174,7 +174,7 @@ export default async function(cfg) {
       if (index >= 0) {
         // Check if it's an external link
         const href = token.attrs[index][1];
-        if (href && !(href.startsWith('/') || href.startsWith('#'))) {
+        if (URL.canParse(href)) {
           token.attrSet("target", "_blank");
         }
       }
