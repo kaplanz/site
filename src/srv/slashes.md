@@ -21,7 +21,7 @@ of various pages of interest.
 [/blog](/blog/)
 : Blog where I occasionally post.
 
-[/books](/books)
+[/books](/media/books)
 : My reading timeline and book lists.
 
 [/colophon](/colophon)

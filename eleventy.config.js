@@ -233,6 +233,9 @@ export default async function(cfg) {
   cfg.addFilter("split", (str, separator) => {
     return str ? str.split(separator) : [];
   });
+  cfg.addFilter("map", (arr, key) => {
+    return arr.map(item => item[key]);
+  });
 
   // Collect posts
   cfg.addCollection("blog", api => api
