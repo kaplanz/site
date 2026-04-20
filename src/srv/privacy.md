@@ -9,7 +9,7 @@ outlined below.
 > [!IMPORTANT]
 >
 > Any changes to this policy will take effect immediately after being published
-> to the following webpage: [https://zakhary.dev/privacy](/privacy/)
+> to the following webpage: [https://zakhary.dev/privacy](/privacy)
 
 ## User Data
 
