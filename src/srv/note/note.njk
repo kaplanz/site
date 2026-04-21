@@ -1,0 +1,10 @@
+---
+pagination:
+  data: notes
+  size: 1
+  alias: note
+  addAllPagesToCollections: true
+layout: note
+permalink: /note/{{ note.fileSlug }}.html
+---
+{{ note.content | markdown | safe }}

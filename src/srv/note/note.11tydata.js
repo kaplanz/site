@@ -1,14 +1,8 @@
 export default {
-  layout: "note",
   eleventyComputed: {
-    date(data) {
-      data.page.date = new Date(data.created);
-    },
-    title: data => data.title || (
-      `Note #${data.page.fileSlug}`
-    ),
-    created: data => data.created || (
-      new Date(1000 * parseInt(data.page.fileSlug, 16))
-    ),
+    title: data => data.note ? `Note #${data.note.fileSlug}` : undefined,
+    created: data => data.note?.created,
+    tags:    data => data.note?.tags ?? [],
+    slug:    data => data.note?.fileSlug,
   },
 };

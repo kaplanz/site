@@ -244,8 +244,9 @@ export default async function(cfg) {
   );
   // Collect notes
   cfg.addCollection("note", api => api
-    .getFilteredByGlob("src/srv/note/*.md")
-    .sort((a, b) => parseInt(b.fileSlug, 16) - parseInt(a.fileSlug, 16))
+    .getAll()
+    .filter(item => /^\/note\/[0-9a-f]+/.test(item.url))
+    .sort((a, b) => new Date(b.data.created) - new Date(a.data.created))
   );
 
   // Layout aliases for cleaner front matter

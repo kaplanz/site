@@ -1,14 +1,14 @@
 {% set created = note.data.created %}
 {% set tags = note.data.tags %}
 
-<article class="note" id="note:{{ note.fileSlug }}">
+<article class="note" id="note:{{ note.data.slug }}">
   <header>
     <img class="user" src="/user.png" alt=""/>
     <div class="info">
       <span class="name">@zakhary.dev</span>
       <time datetime="{{ created | dated }}">{{ created | since }}</time>
     </div>
-    {% if tags %}
+    {% if tags.length %}
       {% include "widget/tags.njk" %}
     {% endif %}
   </header>
@@ -16,7 +16,7 @@
     {{ note.content | safe }}
   </section>
   <aside class="link">
-    <a target="_self" href="/note/{{ note.fileSlug }}"></a>
+    <a target="_self" href="{{ note.url }}"></a>
   </aside>
 </article>
 

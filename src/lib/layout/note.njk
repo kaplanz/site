@@ -3,7 +3,8 @@ layout: base
 ---
 
 {% set note = {
-  fileSlug: page.fileSlug,
+  url: page.url,
+  fileSlug: slug,
   content: content,
   data: {
     title: title,
