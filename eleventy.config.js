@@ -214,10 +214,13 @@ export default async function(cfg) {
   cfg.addFilter("dated", (date, fmt) =>
     dayjs(date).format(fmt)
   );
-  // Format since date
-  cfg.addFilter("since", date =>
-    dayjs(date).fromNow()
-  );
+  // Format relative date
+  cfg.addFilter("since", date => {
+    const d = dayjs(date);
+    return dayjs().diff(d, "year") >= 1
+      ? d.format("DD MMM YYYY")
+      : d.fromNow();
+  });
   // Calc reading time
   cfg.addFilter("readingTime", content =>
     readingTime(content).minutes
