@@ -5,7 +5,7 @@
       <svg class="icon" viewBox="0 0 16 16" width="16" height="16">
         <use fill="currentColor" href="#icon:date"></use>
       </svg>
-      <span>{{ created | dated("DD MMM YYYY") }}</span>
+      <span>{{ created | since }}</span>
     </span>
   {% endif %}
   {# updated date #}
@@ -14,7 +14,7 @@
       <svg class="icon" viewBox="0 0 16 16" width="16" height="16">
         <use fill="currentColor" href="#icon:edit"></use>
       </svg>
-      <span>{{ updated | dated("DD MMM YYYY") }}</span>
+      <span>{{ updated | since }}</span>
     </span>
   {% endif %}
   {# reading time #}

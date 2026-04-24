@@ -26,7 +26,7 @@ eleventyExcludeFromCollections: true
     %}
       <li>
         {% set created = item.data.created %}
-        <time datetime="{{ created | dated }}">
+        <time datetime="{{ created | dated }}" title="{{ created | dated }}">
           {{- created | dated("DD MMM YYYY") -}}
         </time>
         <a href="{{ item.url }}">

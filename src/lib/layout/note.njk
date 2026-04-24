@@ -14,9 +14,10 @@ layout: base
 } %}
 
 <header>
-  <span style="font: normal 1.2em var(--sans); margin: 1em 0; display: block;">
-    {{ created | dated }}
-  </span>
+  <time datetime="{{ created | dated }}" title="{{ created | dated }}"
+      style="font: normal 1.2em var(--sans); margin: 1em 0; display: block;">
+    {{ created | since }}
+  </time>
 </header>
 <section style="display: flex; flex: inherit; place-items: center; place-content: center;">
   {% include "widget/note.njk" %}
