@@ -11,7 +11,7 @@ title: Books
 </header>
 <section class="books">
   {% for year, books in
-    media.books.read | groupby("year") | dictsort | reverse
+    fetch.books.read | groupby("year") | dictsort | reverse
   %}
     <details open>
       <summary>
