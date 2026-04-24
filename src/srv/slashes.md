@@ -30,7 +30,7 @@ of various pages of interest.
 [/contact](/contact)
 : What's the best way to reach out.
 
-[/links](/links)
+[/links](/media/links)
 : Pages I've bookmarked from across the internet.
 
 [/note](/note/)

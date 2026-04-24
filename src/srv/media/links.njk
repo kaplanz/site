@@ -1,0 +1,87 @@
+---
+title: Links
+article: >
+  Since I don't really use traditional social media, this page is a collection
+  of saved webpages from across the internet. This mostly started from my being
+  unhappy with existing bookmark managing tools. What's the point of collecting
+  links if they're private and no one ever sees them?
+---
+
+<section class="links">
+  {{ article | markdown | safe }}
+  <hr/>
+  <ul>
+    {% for link in fetch.links %}
+      <li>
+        <div class="info">
+          <a href="{{ link.url }}" target="_blank">{{ link.title or link.url }}</a>
+          <div class="date">
+            <svg viewBox="0 0 384 512" width="9" height="12">
+              <use fill="currentColor" href="#icon:tack"></use>
+            </svg>
+            <time datetime="{{ link.created | dated }}" title="{{ link.created | dated }}">{{ link.created | since }}</time>
+          </div>
+        </div>
+        {% if link.tags.length %}
+          {% set tags = link.tags %}
+          {% include "widget/tags.njk" %}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<style>
+  .links {
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        box-sizing: border-box;
+        border: 2px solid var(--darker);
+        border-radius: 8px;
+        box-shadow: 2px 2px 1px var(--shadow);
+        background: var(--darken);
+        padding: 8px;
+
+        div.info {
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+          min-width: 0;
+
+          a {
+            align-self: start;
+            font-family: var(--serif);
+            font-weight: normal;
+            overflow-wrap: break-word;
+          }
+
+          div.date {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-block-start: .25em;
+            font: 200 .6em var(--sans);
+
+            time {
+              font-family: var(--sans);
+            }
+            color: oklch(from currentColor l c h / .6);
+          }
+        }
+
+        div.tags {
+          font-size: .75em;
+        }
+      }
+    }
+  }
+</style>
