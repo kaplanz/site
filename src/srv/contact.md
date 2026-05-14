@@ -2,10 +2,12 @@
 title: Let's Connect
 ---
 
-If you're looking to connect with me, please reach out at one of the following:
+Looking to connect? I try to respond pretty quickly, unless your message look
+like spam. Please don't reach out to solicit anything. That being said, you can
+find me using any of the following, at your convenience:
 
-email: <a href="mailto:me@zakhary.dev" target="_blank">me@zakhary.dev</a>
-: I usually respond to emails within a day.
+- **chat**: [`zakhary.99`][signal] on Signal, my preferred platform for
+  encrypted messaging.
+- **mail**: `me@<this domain>`.
 
-video: [cal.zakhary.dev](https://cal.zakhary.dev)
-: Schedule a virtual meetup with me here.
+[signal]: https://signal.me/#eu/HXAl1CLMKObdCWC_g_S-S5rkE0FPZ-G15YfWVfWyRIpS79j5XmBCTLxrdpwwGgxk
