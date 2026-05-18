@@ -1,20 +1,24 @@
 <aside class="meta">
   {# created date #}
   {% if created %}
-    <span class="item" title="{{ created }}">
+    <span class="item">
       <svg class="icon" viewBox="0 0 16 16" width="16" height="16">
         <use fill="currentColor" href="#icon:date"></use>
       </svg>
-      <span>{{ created | since }}</span>
+      <time datetime="{{ created | dated }}" title="{{ created | dated }}">
+        {{- created | since -}}
+      </time>
     </span>
   {% endif %}
   {# updated date #}
   {% if updated %}
-    <span class="item" title="{{ updated }}">
+    <span class="item">
       <svg class="icon" viewBox="0 0 16 16" width="16" height="16">
         <use fill="currentColor" href="#icon:edit"></use>
       </svg>
-      <span>{{ updated | since }}</span>
+      <time datetime="{{ updated | dated }}" title="{{ updated | dated }}">
+        {{- updated | since -}}
+      </time>
     </span>
   {% endif %}
   {# reading time #}
@@ -46,6 +50,10 @@
       &:not(:last-of-type)::after {
         content: "\2022";
         margin: 0 8px;
+      }
+
+      time {
+        font: inherit;
       }
     }
 
