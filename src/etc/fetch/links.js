@@ -5,7 +5,7 @@ url.searchParams.set("sort", "created");
 url.searchParams.set("order", "desc");
 
 export default async () =>
-  (await Fetch(url.href, { duration: "30m", type: "json" }))
+  (await Fetch(url.href, { duration: "5m", type: "json" }))
     .map(({ item, meta, tags }) => ({
       url: item.url,
       title: item.title,

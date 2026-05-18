@@ -5,7 +5,7 @@ url.searchParams.set("creator", "users/zakhary");
 url.searchParams.set("pageSize", "50");
 
 export default async () =>
-  ((await Fetch(url.href, { duration: "30m", type: "json" })).memos ?? [])
+  ((await Fetch(url.href, { duration: "5m", type: "json" })).memos ?? [])
     .map(({ createTime, content, tags }) => ({
       created: new Date(createTime),
       content,
