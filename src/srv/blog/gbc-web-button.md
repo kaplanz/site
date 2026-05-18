@@ -1,7 +1,7 @@
 ---
 title: GBC Boot Animation 88×31 Web Button
 created: 2026-01-04T23:30
-updated: 2026-01-05T20:30
+updated: 2026-05-18T19:00
 tags: [game-boy, 88x31, magick]
 ---
 
@@ -177,6 +177,17 @@ magick cropped.gif -resize 82x scaled.gif
 This scales (resizes) the GIF to be 82 pixels wide while maintaining the aspect
 ratio, the result being 82x14. I chose 82 pixels wide specifically since that'll
 allow us to fit for the next stage.
+
+> **Edit**:
+>
+> Throughout this post I'm using `-resize`, which defaults to a Lanczos filter
+> in ImageMagick. When downscaling pixel art, which filter is used can have a
+> big impact on how the final product looks.
+>
+> In the version of the button found in the conclusion I have changed the filter
+> to a box filter (nearest-neighbour averaging) instead, which has fewer
+> compression artifacts and looks better in my opinion. This would have actually
+> been the default had I used `-scale` instead of `-resize`.
 
 <figure>
   <img
@@ -626,6 +637,7 @@ magick animation.gif \
     -fill "#BABDC2" -opaque "#F7F9FF" \
     -fill "#BCBEC1" -opaque "#FAFBFF" \
     -fill "#C0C0C0" -opaque "#FFFFFF" \  # replace background with grey
+    -filter box \                        # use nearest-neighbour filter
     -resize 82x \                        # scale animation to 82x14
     -gravity center \                    # place logo in centre
     -background "#C0C0C0" \              # use grey for added background
@@ -646,7 +658,7 @@ size can be greatly reduced by instead only storing changes between each frame.
 magick button.gif -layers OptimizeTransparency optimized.gif
 ```
 
-Doing this decreases the file size from 170.85 KiB down to 61.02 KiB, a 64%
+Doing this decreases the file size from 61.49 KiB down to 25.40 KiB, a 59%
 reduction!
 
 ## Conclusion
@@ -659,7 +671,7 @@ appreciated regardless.
 
 <figure>
   <img
-    src="/assets/img/usr/d0281820.gif"
+    src="/assets/img/usr/04215e11.gif"
     alt="Game Boy Color boot animation web button"
   />
   <figcaption>
