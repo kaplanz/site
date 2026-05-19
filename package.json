@@ -11,16 +11,16 @@
     "dev": "eleventy --serve"
   },
   "dependencies": {
-    "@11ty/eleventy": "^3.0.0",
-    "@11ty/eleventy-fetch": "^5.1.1",
-    "@11ty/eleventy-plugin-rss": "^2.0.2",
-    "dayjs": "^1.11.13",
-    "htmlnano": "^3.0.0",
-    "lightningcss": "^1.30.2",
-    "markdown-it": "^14.1.0",
+    "@11ty/eleventy": "^3.1.5",
+    "@11ty/eleventy-fetch": "^5.1.2",
+    "@11ty/eleventy-plugin-rss": "^3.0.0",
+    "dayjs": "^1.11.20",
+    "htmlnano": "^3.3.1",
+    "lightningcss": "^1.32.0",
+    "markdown-it": "^14.1.1",
     "markdown-it-anchor": "^9.2.0",
     "markdown-it-deflist": "^3.0.0",
-    "markdown-it-github-alerts": "^1.0.0",
+    "markdown-it-github-alerts": "^1.0.1",
     "markdown-it-inline-footnotes": "workspace:*",
     "reading-time": "^1.5.0"
   }
