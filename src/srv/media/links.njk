@@ -17,7 +17,7 @@ article: >
       <tr>
         <td class="title">
           <a href="{{ link.url }}" target="_blank">
-            {{- link.title or link.url -}}
+            {{- (link.title or link.url) | safe -}}
           </a>
         </td>
         <td class="tags">
