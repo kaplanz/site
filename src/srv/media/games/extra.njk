@@ -1,0 +1,48 @@
+---
+title: "Games: Extra"
+---
+
+{% include "media/navbar.njk" %}
+{% include "games/navbar.njk" %}
+
+<table class="plain">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Model</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for extra in fetch.games.extra
+      | sort(attribute="title")
+      | sort(attribute="system")
+    %}
+      <tr>
+        <td class="title">
+          {{ extra.title }}
+          {% if extra.variation %}<span class="variation">({{ extra.variation }})</span>{% endif %}
+        </td>
+        <td class="model">{{ extra.model }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<style>{% include "style/media.css" %}</style>
+<style>
+  table.plain {
+    .title {
+      font-family: var(--serif);
+    }
+
+    .variation {
+      font-family: var(--serif);
+      color: oklch(from currentColor l c h / .6);
+    }
+
+    .model {
+      font: .8em var(--mono);
+      color: oklch(from currentColor l c h / .6);
+    }
+  }
+</style>

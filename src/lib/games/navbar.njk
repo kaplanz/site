@@ -1,0 +1,16 @@
+{% set tabs = [
+  { url: "/media/games",         label: "Played"  },
+  { url: "/media/games/owned",   label: "Owned"   },
+  { url: "/media/games/system",  label: "System"  },
+  { url: "/media/games/extra",   label: "Extra"   }
+] %}
+<header>
+  <fieldset>
+    {% for tab in tabs %}
+      <button
+        onclick="location.href='{{ tab.url }}'"
+        {% if page.url == tab.url %}aria-current="true"{% endif %}
+      >{{ tab.label }}</button>
+    {% endfor %}
+  </fieldset>
+</header>

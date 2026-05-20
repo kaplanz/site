@@ -2,6 +2,8 @@
 title: Books
 ---
 
+{% include "media/navbar.njk" %}
+
 <header>
   <fieldset>
     <a href="/media/books/read">Timeline</a>
@@ -46,32 +48,8 @@ title: Books
   {% endfor %}
 </section>
 
+<style>{% include "style/media.css" %}</style>
 <style>
-  header {
-    padding-block-start: 1em;
-
-    fieldset {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .5em;
-      justify-content: center;
-      border: none;
-      padding: 0;
-
-      button {
-        font: 1.2em var(--serif);
-        padding: 2px 12px;
-        margin: 0;
-
-        &[aria-current="true"] {
-          --backgd: color-mix(in srgb, var(--darker) 70%, var(--accent));
-          --border: var(--accent);
-          --shadow: oklch(from var(--accent) l c h / .4);
-        }
-      }
-    }
-  }
-
   .books {
     details summary {
       display: flex;

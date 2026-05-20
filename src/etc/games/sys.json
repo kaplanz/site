@@ -1,0 +1,34 @@
+{
+  "dmg": {
+    "name": "Game Boy",
+    "year": 1989
+  },
+  "snes": {
+    "name": "Super Nintendo Entertainment System",
+    "year": 1990
+  },
+  "gbc": {
+    "name": "Game Boy Color",
+    "year": 1998
+  },
+  "gba": {
+    "name": "Game Boy Advance",
+    "year": 2001
+  },
+  "gcn": {
+    "name": "Nintendo GameCube",
+    "year": 2001
+  },
+  "ds": {
+    "name": "Nintendo DS",
+    "year": 2004
+  },
+  "3ds": {
+    "name": "Nintendo 3DS",
+    "year": 2011
+  },
+  "switch": {
+    "name": "Nintendo Switch",
+    "year": 2017
+  }
+}

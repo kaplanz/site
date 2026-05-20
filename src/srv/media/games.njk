@@ -1,0 +1,48 @@
+---
+title: Games
+---
+
+{% include "media/navbar.njk" %}
+{% include "games/navbar.njk" %}
+
+<table class="plain">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>System</th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for game in fetch.media.game %}
+      {% if game.rated %}
+        <tr>
+          <td class="title">{{ game.title }}</td>
+          <td>{% if game.system %}<span class="system">{{ (games.sys[game.system] or { name: game.system }).name }}</span>{% endif %}</td>
+          <td class="rated">{{ game.rated }}/5</td>
+        </tr>
+      {% endif %}
+    {% endfor %}
+  </tbody>
+</table>
+
+<style>{% include "style/media.css" %}</style>
+<style>
+  table.plain {
+    .title {
+      font-family: var(--serif);
+    }
+
+    .system {
+      font: .8em var(--mono);
+      background: oklch(from var(--teal) l c h / .4);
+      border-radius: 4px;
+      padding: 0 4px;
+    }
+
+    .rated {
+      font: .8em var(--mono);
+      color: oklch(from currentColor l c h / .6);
+    }
+  }
+</style>

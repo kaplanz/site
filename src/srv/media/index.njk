@@ -1,0 +1,69 @@
+---
+title: Media
+about: >
+  Books, games, films, shows, and links I've been into recently.
+---
+
+{% include "media/navbar.njk" %}
+
+<p>{{ about }}</p>
+
+{% set feed = [] %}
+{% for kind in ["book", "film", "game", "link", "show"] %}
+  {% if fetch.media[kind] %}
+    {% for item in fetch.media[kind] | take(5) %}
+      {%- set _ = feed.push(item) -%}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+
+<ul class="feed">
+  {% for item in feed | sort(reverse=true, attribute="created") %}
+    <li>
+      <a class="kind {{ item.kind }}" href="/media/{{ item.kind }}s">{{ item.kind }}</a>
+      <span class="title">
+        {%- if item.kind == "link" -%}
+          <a href="{{ item.url }}" target="_blank">{{ item.title or item.url }}</a>
+        {%- else -%}
+          {{ item.title }}
+        {%- endif -%}
+      </span>
+      <time
+        datetime="{{ item.created | dated }}"
+        title="{{ item.created | dated }}"
+      >{{ item.created | since }}</time>
+    </li>
+  {% endfor %}
+</ul>
+
+<style>{% include "style/media.css" %}</style>
+<style>
+  ul.feed {
+    list-style: none;
+    padding: 0;
+    margin: 1em 0;
+    display: flex;
+    flex-direction: column;
+    gap: .25em;
+
+    li {
+      display: flex;
+      align-items: baseline;
+      gap: 1ch;
+      padding-block: 4px;
+      border-block-end: 1px solid oklch(from currentColor l c h / .1);
+
+      .title {
+        font-family: var(--serif);
+        flex: 1;
+        min-inline-size: 0;
+        overflow-wrap: break-word;
+      }
+
+      time {
+        font: .8em var(--mono);
+        color: oklch(from currentColor l c h / .6);
+      }
+    }
+  }
+</style>

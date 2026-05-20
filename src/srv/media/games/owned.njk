@@ -1,0 +1,48 @@
+---
+title: "Games: Owned"
+---
+
+{% include "media/navbar.njk" %}
+{% include "games/navbar.njk" %}
+
+<table class="plain">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>System</th>
+      <th>Revision</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for owned in fetch.games.owned | sort(attribute="system") %}
+      <tr>
+        <td class="title">
+          {{- (fetch.media.game | groupby("id"))[owned.game][0].title -}}
+        </td>
+        <td>{% if owned.system %}<span class="system">{{ (games.sys[owned.system] or { name: owned.system }).name }}</span>{% endif %}</td>
+        <td class="revision">{{ owned.revision }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<style>{% include "style/media.css" %}</style>
+<style>
+  table.plain {
+    .title {
+      font-family: var(--serif);
+    }
+
+    .revision {
+      font: .8em var(--mono);
+      color: oklch(from currentColor l c h / .6);
+    }
+
+    .system {
+      font: .8em var(--mono);
+      background: oklch(from var(--teal) l c h / .4);
+      border-radius: 4px;
+      padding: 0 4px;
+    }
+  }
+</style>

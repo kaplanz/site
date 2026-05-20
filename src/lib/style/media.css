@@ -1,0 +1,47 @@
+/* Section subnav */
+header {
+  padding-block-start: 1em;
+
+  fieldset {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5em;
+    justify-content: center;
+    border: none;
+    padding: 0;
+
+    button {
+      font: 1em var(--serif);
+      padding: 2px 12px;
+      margin: 0;
+
+      &[aria-current="true"] {
+        --backgd: color-mix(in srgb, var(--darker) 70%, var(--accent));
+        --border: var(--accent);
+        --shadow: oklch(from var(--accent) l c h / .4);
+      }
+
+      &[disabled] {
+        cursor: not-allowed;
+        opacity: .5;
+      }
+    }
+  }
+}
+
+/* Kind badges */
+.kind {
+  font: .7em var(--mono);
+  padding: 0 6px;
+  border-radius: 4px;
+  text-transform: lowercase;
+  background: oklch(from var(--color) l c h / .3);
+  color: inherit;
+  text-decoration: none;
+
+  &.book { --color: var(--yellow);  }
+  &.film { --color: var(--red);     }
+  &.game { --color: var(--blue);    }
+  &.link { --color: var(--green);   }
+  &.show { --color: var(--magenta); }
+}

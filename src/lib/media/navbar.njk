@@ -1,0 +1,18 @@
+{% set tabs = [
+  { url: "/media/books", label: "Books" },
+  { url: "/media/games", label: "Games" },
+  { url: "/media/films", label: "Films", disabled: true },
+  { url: "/media/shows", label: "Shows", disabled: true },
+  { url: "/media/links", label: "Links" }
+] %}
+<header>
+  <fieldset>
+    {% for tab in tabs %}
+      <button
+        onclick="location.href='{{ tab.url }}'"
+        {% if tab.disabled %}disabled{% endif %}
+        {% if tab.url in page.url %}aria-current="true"{% endif %}
+      >{{ tab.label }}</button>
+    {% endfor %}
+  </fieldset>
+</header>
