@@ -3,6 +3,10 @@
     "name": "Game Boy",
     "year": 1989
   },
+  "sfc": {
+    "name": "Super Famicom",
+    "year": 1990
+  },
   "snes": {
     "name": "Super Nintendo Entertainment System",
     "year": 1990
@@ -10,6 +14,10 @@
   "gbc": {
     "name": "Game Boy Color",
     "year": 1998
+  },
+  "sw": {
+    "name": "WonderSwan",
+    "year": 1999
   },
   "gba": {
     "name": "Game Boy Advance",
