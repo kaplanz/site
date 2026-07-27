@@ -239,6 +239,13 @@ export default async function(cfg) {
   cfg.addFilter("map", (arr, key) => {
     return arr.map(item => item[key]);
   });
+  // Render region as flag emoji
+  cfg.addFilter("flag", code => {
+    if (!code) return;
+    return [...code.toUpperCase()]
+      .map(c => String.fromCodePoint(0x1F1A5 + c.codePointAt(0)))
+      .join("");
+  });
 
   // Collect posts
   cfg.addCollection("blog", api => api

@@ -10,6 +10,7 @@ title: "Games: Extra"
     <tr>
       <th>Title</th>
       <th>Model</th>
+      <th>Region</th>
     </tr>
   </thead>
   <tbody>
@@ -20,9 +21,10 @@ title: "Games: Extra"
       <tr>
         <td class="title">
           {{ extra.title }}
-          {% if extra.variation %}<span class="variation">({{ extra.variation }})</span>{% endif %}
+          {% if extra.variant %}<span class="variant">({{ extra.variant }})</span>{% endif %}
         </td>
         <td class="model">{{ extra.model }}</td>
+        <td class="region">{{ extra.region | flag }}</td>
       </tr>
     {% endfor %}
   </tbody>
@@ -35,7 +37,7 @@ title: "Games: Extra"
       font-family: var(--serif);
     }
 
-    .variation {
+    .variant {
       font-family: var(--serif);
       color: oklch(from currentColor l c h / .6);
     }
