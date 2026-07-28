@@ -10,16 +10,16 @@ title: Games
     <tr>
       <th>Title</th>
       <th>System</th>
-      <th>Rating</th>
+      <th>State</th>
     </tr>
   </thead>
   <tbody>
     {% for game in fetch.media.game %}
-      {% if game.rating %}
+      {% if game.logs.length %}
         <tr>
           <td class="title">{{ game.title }}</td>
           <td>{% if game.system %}<span class="system">{{ (games.sys[game.system] or { name: game.system }).name }}</span>{% endif %}</td>
-          <td class="rating">{{ game.rating }}/5</td>
+          <td class="state">{{ (game.logs | last).kind }}</td>
         </tr>
       {% endif %}
     {% endfor %}
@@ -40,9 +40,8 @@ title: Games
       padding: 0 4px;
     }
 
-    .rating {
+    .state {
       font: .8em var(--mono);
-      color: oklch(from currentColor l c h / .6);
     }
   }
 </style>

@@ -9,11 +9,13 @@ export default async () => Object.groupBy(
     kind,
     item,
     meta,
+    logs,
     tags,
   }) => ({
     kind,
     ...item,
     created: new Date(meta.created * 1000),
+    logs: logs ?? [],
     tags: tags ?? [],
   })),
   item => item.kind,
