@@ -10,7 +10,6 @@ title: Games
     <tr>
       <th>Title</th>
       <th>System</th>
-      <th>State</th>
     </tr>
   </thead>
   <tbody>
@@ -18,8 +17,9 @@ title: Games
       {% if game.logs.length %}
         <tr>
           <td class="title">{{ game.title }}</td>
-          <td>{% if game.system %}<span class="system">{{ (games.sys[game.system] or { name: game.system }).name }}</span>{% endif %}</td>
-          <td class="state">{{ (game.logs | last).kind }}</td>
+          <td>{% if game.system %}<span class="system">{{-
+            (data.retcon[game.system] or { name: game.system }).name
+          -}}</span>{% endif %}</td>
         </tr>
       {% endif %}
     {% endfor %}

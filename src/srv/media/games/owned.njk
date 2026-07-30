@@ -5,32 +5,61 @@ title: "Games: Owned"
 {% include "media/navbar.njk" %}
 {% include "games/navbar.njk" %}
 
-<table class="plain">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>System</th>
-      <th>Revision</th>
-      <th>Region</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for owned in fetch.games.owned | sort(attribute="system") %}
-      <tr>
-        <td class="title">
-          {{- (fetch.media.game | groupby("id"))[owned.game][0].title -}}
-        </td>
-        <td>{% if owned.system %}<span class="system">{{ (games.sys[owned.system] or { name: owned.system }).name }}</span>{% endif %}</td>
-        <td class="revision">{{ owned.revision }}</td>
-        <td class="region">{{ owned.region | flag }}</td>
-      </tr>
-    {% endfor %}
-  </tbody>
-</table>
+{% for system, games in fetch.games.owned
+  | sort(false, false, "system.date")
+  | groupby("system.slug")
+  %}
+  <section>
+    <h3 id={{ system }} class="system">
+      <a class="anchor" href="#{{ system }}">
+        <img src="https://cdn.zakhary.dev/img/icons/retcon/{{ system }}.png"/>
+        <span>{{ data.retcon[system].name }}</span>
+      </a>
+    </h3>
+
+    <table class="plain">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Title</th>
+          <th>Revision</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for game in games
+        | sort(false, false, "title")
+        %}
+          <tr>
+            <td class="region">{{ game.region | flag }}</td>
+            <td class="title">{{ game.title }}</td>
+            <td class="revision">{{ game.revision }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+{% endfor %}
 
 <style>{% include "style/media.css" %}</style>
 <style>
+  h3.system {
+    a {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    img {
+      block-size: 100%;
+      corner-radius: 0;
+    }
+  }
+
   table.plain {
+    th, td {
+      vertical-align: middle;
+    }
+
     .title {
       font-family: var(--serif);
     }

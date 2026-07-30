@@ -35,8 +35,8 @@ title: Books
               <span> by </span>
               <em>
                 {{- item.book.contributions
-                  | map("author")
-                  | map("name")
+                  | field("author")
+                  | field("name")
                   | join(", ")
                 -}}
               </em>

@@ -1,0 +1,158 @@
+{
+  "hvc": {
+    "name": "Family Computer",
+    "date": "1983-07-15"
+  },
+  "nes": {
+    "name": "Nintendo Entertainment System",
+    "date": "1985-09-18"
+  },
+  "ms": {
+    "name": "Sega Master System",
+    "date": "1986-06-02"
+  },
+  "md": {
+    "name": "Mega Drive",
+    "date": "1988-10-29"
+  },
+  "dmg": {
+    "name": "Game Boy",
+    "date": "1989-04-21"
+  },
+  "gen": {
+    "name": "Sega Genesis",
+    "date": "1989-08-14"
+  },
+  "sfc": {
+    "name": "Super Famicom",
+    "date": "1990-11-21"
+  },
+  "gg": {
+    "name": "Game Gear",
+    "date": "1990-10-06"
+  },
+  "snes": {
+    "name": "Super Nintendo Entertainment System",
+    "date": "1991-08-23"
+  },
+  "mcd": {
+    "name": "Mega-CD",
+    "date": "1991-12-12"
+  },
+  "scd": {
+    "name": "Sega CD",
+    "date": "1992-10-15"
+  },
+  "32x": {
+    "name": "Sega 32X",
+    "date": "1994-11-21"
+  },
+  "saturn": {
+    "name": "Sega Saturn",
+    "date": "1994-11-22"
+  },
+  "ps1": {
+    "name": "PlayStation",
+    "date": "1994-12-03"
+  },
+  "vb": {
+    "name": "Virtual Boy",
+    "date": "1995-07-21"
+  },
+  "mgb": {
+    "name": "Game Boy Pocket",
+    "date": "1996-07-21"
+  },
+  "gbc": {
+    "name": "Game Boy Color",
+    "date": "1998-10-21"
+  },
+  "dc": {
+    "name": "Dreamcast",
+    "date": "1998-11-27"
+  },
+  "n64dd": {
+    "name": "Nintendo 64DD",
+    "date": "1999-12-01"
+  },
+  "wswan": {
+    "name": "WonderSwan",
+    "date": "1999-03-04"
+  },
+  "ps2": {
+    "name": "PlayStation 2",
+    "date": "2000-03-04"
+  },
+  "wswanc": {
+    "name": "WonderSwan Color",
+    "date": "2000-12-09"
+  },
+  "gba": {
+    "name": "Game Boy Advance",
+    "date": "2001-03-21"
+  },
+  "gcn": {
+    "name": "Nintendo GameCube",
+    "date": "2001-09-14"
+  },
+  "xbox": {
+    "name": "Xbox",
+    "date": "2001-11-15"
+  },
+  "swanct": {
+    "name": "SwanCrystal",
+    "date": "2002-07-12"
+  },
+  "ags": {
+    "name": "Game Boy Advance SP",
+    "date": "2003-02-14"
+  },
+  "nds": {
+    "name": "Nintendo DS",
+    "date": "2004-11-21"
+  },
+  "psp": {
+    "name": "PlayStation Portable",
+    "date": "2004-12-12"
+  },
+  "x360": {
+    "name": "Xbox 360",
+    "date": "2005-11-22"
+  },
+  "ps3": {
+    "name": "PlayStation 3",
+    "date": "2006-11-11"
+  },
+  "wii": {
+    "name": "Nintendo Wii",
+    "date": "2006-11-19"
+  },
+  "3ds": {
+    "name": "Nintendo 3DS",
+    "date": "2011-02-26"
+  },
+  "psvita": {
+    "name": "PlayStation Vita",
+    "date": "2011-12-17"
+  },
+  "wiiu": {
+    "name": "Nintendo Wii U",
+    "date": "2012-12-08"
+  },
+  "ps4": {
+    "name": "PlayStation 4",
+    "date": "2013-11-15"
+  },
+  "xone": {
+    "name": "Xbox One",
+    "date": "2013-11-22"
+  },
+  "n3ds": {
+    "name": "New Nintendo 3DS",
+    "date": "2014-10-11"
+  },
+  "switch": {
+    "name": "Nintendo Switch",
+    "date": "2017-03-03"
+  }
+}

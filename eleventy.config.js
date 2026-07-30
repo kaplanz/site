@@ -236,7 +236,7 @@ export default async function(cfg) {
   cfg.addFilter("split", (str, separator) => {
     return str ? str.split(separator) : [];
   });
-  cfg.addFilter("map", (arr, key) => {
+  cfg.addFilter("field", (arr, key) => {
     return arr.map(item => item[key]);
   });
   // Render region as flag emoji
