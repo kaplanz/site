@@ -25,7 +25,10 @@ almost everything I needed:
   - Phillips #1
 
 <figure style="inline-size: 400px; margin-inline: auto;">
-  <img src="/assets/img/usr/c3cc46fc.png" width="250"/>
+  <img
+    src="https://cdn.zakhary.dev/img/share/c3cc46fc.png"
+    width="250"
+  />
   <figcaption style="text-align: justify;">
     Here's everything I used for this project. Besides the soldering iron,
     cleaning supplies, and donor GBC, everything else came from the kit.
@@ -45,8 +48,14 @@ Here is the completed project:
 
 <figure style="inline-size: 400px; margin-inline: auto;">
   <span>
-    <img src="/assets/img/usr/20ac4d18.png" width="150" title="Original gbc"/>
-    <img src="/assets/img/usr/01840c7a.png" width="150" title="Modded gbc"/>
+    <img
+      src="https://cdn.zakhary.dev/img/share/20ac4d18.png"
+      width="150" title="Original gbc"
+    />
+    <img
+      src="https://cdn.zakhary.dev/img/share/01840c7a.png"
+      width="150" title="Modded gbc"
+    />
   <figcaption style="text-align: justify;">
     Comparison images of my Game Boy Color before (left) and after (right) the
     mod.
@@ -57,7 +66,10 @@ I'm really happy with how it turned out! This was a great learning experience
 and a relatively simple introduction to retro modding.
 
 <figure>
-  <img src="/assets/img/usr/00d12780.png" width="250"/>
+  <img
+    src="https://cdn.zakhary.dev/img/share/00d12780.png"
+    width="250"
+  />
   <figcaption>
     Enjoying a pretty decent casual high score in Tetris.
   </figcaption>

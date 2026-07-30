@@ -22,7 +22,10 @@ My idea was to use the boot animation from the Game Boy Color placed inside the
 traditional grey frame. Something like this:
 
 <figure>
-  <img src="/assets/img/usr/8304eeab.png" alt="Mock-up of the web button"/>
+  <img
+    src="https://cdn.zakhary.dev/img/share/8304eeab.png"
+    alt="Mock-up of the web button"
+  />
   <figcaption>
     A rough mock-up of the web button.
   </figcaption>
@@ -128,7 +131,10 @@ the expanded glob.
 Anyways, here's what it looks like:
 
 <figure>
-  <img src="/assets/img/usr/d3dba7d5.gif" alt="Game Boy Color boot animation"/>
+  <img
+    src="https://cdn.zakhary.dev/img/share/d3dba7d5.gif"
+    alt="Game Boy Color boot animation"
+  />
   <figcaption>
     Captured animation from the Game Boy Color boot ROM.
   </figcaption>
@@ -159,7 +165,10 @@ magick animation.gif -crop 127x22+16+48 +repage cropped.gif
 ```
 
 <figure>
-  <img src="/assets/img/usr/76e784fc.gif" alt="Animated Game Boy logo"/>
+  <img
+    src="https://cdn.zakhary.dev/img/share/76e784fc.gif"
+    alt="Animated Game Boy logo"
+  />
   <figcaption>
     Cropped animation showing the Game Boy logo.
   </figcaption>
@@ -191,7 +200,7 @@ allow us to fit for the next stage.
 
 <figure>
   <img
-    src="/assets/img/usr/a68bd208.gif"
+    src="https://cdn.zakhary.dev/img/share/a68bd208.gif"
     alt="Animated Game Boy logo (downscaled)"
   />
   <figcaption>
@@ -206,11 +215,11 @@ Several of the 88x31 buttons I found online have a common frame with a
 
 <figure>
   <img
-    src="/assets/img/usr/1782903c.png"
+    src="https://cdn.zakhary.dev/img/share/1782903c.png"
     alt="Blank 88x31 template with centre"
   />
   <img
-    src="/assets/img/usr/93b415d3.png"
+    src="https://cdn.zakhary.dev/img/share/93b415d3.png"
     alt="Empty 88x31 frame without centre"
   />
   <figcaption>
@@ -237,7 +246,7 @@ Aaaand we're done! Let's take a look at the finished product in all its glory.
 
 <figure>
   <img
-    src="/assets/img/usr/5b782a58.gif"
+    src="https://cdn.zakhary.dev/img/share/5b782a58.gif"
     alt="Framed web button with white surrounding the logo"
   />
   <figcaption>
@@ -260,7 +269,7 @@ magick framed.gif -fill "#C0C0C0" -opaque "#FFFFFF" fixed.gif
 
 <figure>
   <img
-    src="/assets/img/usr/bead6a98.gif"
+    src="https://cdn.zakhary.dev/img/share/bead6a98.gif"
     alt="Animation with white background removed that has scaling artifacts"
   />
   <figcaption>
@@ -291,7 +300,7 @@ finished product.
 
 <figure>
   <img
-    src="/assets/img/usr/06a4ef60.gif"
+    src="https://cdn.zakhary.dev/img/share/06a4ef60.gif"
     alt="Game Boy logo animation with ghosting on fadeout"
   />
   <figcaption>
@@ -366,7 +375,10 @@ helpfully labelled as grey, and 1560 frames in some other colour. Conspicuously,
 that other colour only varies in red and green, but remains fully blue.
 
 <figure>
-  <img src="/assets/img/usr/d3dba7d5.gif" alt="Game Boy Color boot animation"/>
+  <img
+    src="https://cdn.zakhary.dev/img/share/d3dba7d5.gif"
+    alt="Game Boy Color boot animation"
+  />
   <figcaption>
     Let's take another look at that captured animation.
   </figcaption>
@@ -537,12 +549,12 @@ to swap.
 
 <figure>
   <img
-    src="/assets/img/usr/78b8d029.png"
+    src="https://cdn.zakhary.dev/img/share/78b8d029.png"
     alt="Palette from blue to white"
     width="112"
   />
   <img
-    src="/assets/img/usr/3d0b4004.png"
+    src="https://cdn.zakhary.dev/img/share/3d0b4004.png"
     alt="Palette from blue to grey"
     width="112"
   />
@@ -671,7 +683,7 @@ appreciated regardless.
 
 <figure>
   <img
-    src="/assets/img/usr/04215e11.gif"
+    src="https://cdn.zakhary.dev/img/share/04215e11.gif"
     alt="Game Boy Color boot animation web button"
   />
   <figcaption>

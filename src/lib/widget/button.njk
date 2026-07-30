@@ -1,7 +1,10 @@
 <section class="btns">
   {% for item in button %}
     <a href="{{ item.ref }}" rel="nofollow" target="_blank">
-      <img src="/assets/img/88x31/{{ item.src }}" alt="{{ item.alt }}"/>
+      <img
+        src="https://cdn.zakhary.dev/img/88x31/{{ item.src }}"
+        alt="{{ item.alt }}"
+      />
     </a>
   {% endfor %}
 </section>
