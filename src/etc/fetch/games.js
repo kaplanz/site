@@ -9,7 +9,10 @@ const url = {
   extras: new URL("https://api.zakhary.dev/media/games/extras"),
 };
 
-const opts = { duration: "5m", type: "json" };
+const opts = {
+  duration: "0s",
+  type: "json",
+};
 
 export default async () => {
   const title = Object.fromEntries(

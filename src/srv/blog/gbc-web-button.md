@@ -715,7 +715,7 @@ Well, I guess all that’s left is this final plea: Nintendo, please don't sue m
 >
 > **License & Usage**
 >
-> The asset available for download below is released into the public domain
+> The asset available for download above is released into the public domain
 > under the **CC0 1.0 Universal license**. You are free to copy, modify,
 > distribute, and use it for any purpose, including commercial projects, without
 > asking for permission or providing attribution.

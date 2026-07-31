@@ -7,7 +7,7 @@ export default async function() {
     let url = "https://api.zakhary.dev/books/read";
 
     data[list] = await Fetch(url, {
-      duration: "1h",
+      duration: "0s",
       type: "json",
     });
 

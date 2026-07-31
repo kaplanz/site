@@ -5,7 +5,10 @@ url.searchParams.set("sort", "created");
 url.searchParams.set("order", "desc");
 
 export default async () => Object.groupBy(
-  (await Fetch(url.href, { duration: "5m", type: "json" })).map(({
+  (await Fetch(url.href, {
+    duration: "0s",
+    type: "json",
+  })).map(({
     kind,
     item,
     meta,
