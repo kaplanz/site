@@ -699,3 +699,38 @@ Well, I guess all that’s left is this final plea: Nintendo, please don't sue m
     border-radius: 0;
   }
 </style>
+
+
+> [!IMPORTANT]
+>
+> **Download**
+>
+> Access the published button at:
+>
+> https://cdn.zakhary.dev/img/88x31/game-boy.gif
+>
+> ![Game Boy][gbc.badge]
+>
+> [gbc.badge]: https://cdn.zakhary.dev/img/88x31/game-boy.gif
+>
+> **License & Usage**
+>
+> The asset available for download below is released into the public domain
+> under the **CC0 1.0 Universal license**. You are free to copy, modify,
+> distribute, and use it for any purpose, including commercial projects, without
+> asking for permission or providing attribution.
+>
+> See the full license text here:
+>
+> https://creativecommons.org/publicdomain/zero/1.0/
+>
+> [![CC0 1.0][cc0.badge]][cc0.hyper]
+>
+> [cc0.badge]: https://cdn.zakhary.dev/img/88x31/zero.png
+> [cc0.hyper]: https://creativecommons.org/publicdomain/zero/1.0/
+>
+> **Trademark Notice**
+>
+> "Game Boy" is a trademark of Nintendo Co., Ltd. This web button is an
+> unofficial fan-made work and is not affiliated with, endorsed by, or sponsored
+> by Nintendo.
