@@ -1,9 +1,6 @@
 import Fetch from "@11ty/eleventy-fetch";
 
-import retcon from "../data/retcon.json" with { type: "json" };
-
 const url = {
-  games:  new URL("https://api.zakhary.dev/media/games"),
   owned:  new URL("https://api.zakhary.dev/media/games/owned"),
   system: new URL("https://api.zakhary.dev/media/games/system"),
   extras: new URL("https://api.zakhary.dev/media/games/extras"),
@@ -15,20 +12,18 @@ const opts = {
 };
 
 export default async () => {
-  const title = Object.fromEntries(
-    (await Fetch(url.games.href, opts)).map(({ item }) => [
-      item.id,
-      item.title,
-    ]),
+  const plat = await Fetch(
+    "https://cdn.zakhary.dev/usr/share/media/games/platform.json",
+    { type: "json" },
   );
   return {
     owned: (await Fetch(url.owned.href, opts))
       .map(item => ({
         ...item,
-        title: title[item.game],
+        title: item.game.title,
         system: {
           slug: item.system,
-          ...retcon[item.system],
+          ...plat[item.system],
         },
       })),
     system: (await Fetch(url.system.href, opts))
@@ -36,7 +31,7 @@ export default async () => {
         ...item,
         system: {
           slug: item.system,
-          ...retcon[item.system],
+          ...plat[item.system],
         },
       })),
     extras: (await Fetch(url.extras.href, opts))
@@ -44,7 +39,7 @@ export default async () => {
         ...item,
         system: {
           slug: item.system,
-          ...retcon[item.system],
+          ...plat[item.system],
         },
       })),
   };

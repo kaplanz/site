@@ -8,20 +8,25 @@ title: Games
 <table class="plain">
   <thead>
     <tr>
+      <th></th>
       <th>Title</th>
-      <th>System</th>
+      <th>Status</th>
+      <th>Date</th>
     </tr>
   </thead>
   <tbody>
     {% for game in fetch.media.game %}
-      {% if game.logs.length %}
-        <tr>
-          <td class="title">{{ game.title }}</td>
-          <td>{% if game.system %}<span class="system">{{-
-            (data.retcon[game.system] or { name: game.system }).name
-          -}}</span>{% endif %}</td>
-        </tr>
-      {% endif %}
+      {% set log = game.logs | last %}
+      <tr>
+        <td class="icon">
+          {% if game.system -%}
+            <img src="https://cdn.zakhary.dev/img/icons/retcon/{{ game.system }}.png"/>
+          {%- endif %}
+        </td>
+        <td class="title">{{ game.title }}</td>
+        <td class="state">{{ log.kind }}</td>
+        <td class="date">{{ (log.date * 1000) | since }}</td>
+      </tr>
     {% endfor %}
   </tbody>
 </table>
@@ -29,19 +34,25 @@ title: Games
 <style>{% include "style/media.css" %}</style>
 <style>
   table.plain {
+    th, td {
+      vertical-align: middle;
+    }
+
+    .icon > img {
+      corner-radius: 0;
+    }
+
     .title {
       font-family: var(--serif);
     }
 
-    .system {
-      font: .8em var(--mono);
-      background: oklch(from var(--teal) l c h / .4);
-      border-radius: 4px;
-      padding: 0 4px;
-    }
-
     .state {
       font: .8em var(--mono);
+    }
+
+    .date {
+      font: .8em var(--mono);
+      color: oklch(from currentColor l c h / .6);
     }
   }
 </style>
