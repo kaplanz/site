@@ -17,6 +17,7 @@ dayjs.extend(utc);
 
 // features
 import readingTime from "reading-time";
+import { build as plan } from "./src/lib/trips/timeline.js";
 
 // markdown-it plugins
 import markdownItDeflist from "markdown-it-deflist";
@@ -197,6 +198,8 @@ export default async function(cfg) {
 
   // Add markdown filter
   cfg.addFilter("markdown", content => markdown.render(content));
+  // Lay out a trip timeline
+  cfg.addFilter("plan", entries => plan(entries));
   // Inspect filter
   cfg.addFilter("inspect", data => {
     console.log(data);

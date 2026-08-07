@@ -1,0 +1,91 @@
+{% macro timeline(trip) -%}
+  <article class="timeline">
+    {%- for day in trip %}
+      <section id="{{ day.date }}">
+        <header>
+          <h2 class="time">
+            <a href="#{{ day.date }}">
+              <time datetime="{{ day.date }}">
+                {{- day.date | dated("dddd") -}}
+                <small>{{ day.date | dated("DD MMMM") }}</small>
+              </time>
+            </a>
+          </h2>
+          <span class="line">
+            {%- if day.bridge -%}
+              <b class="bridge {{ day.bridge }}"></b>
+            {%- endif -%}
+          </span>
+          {%- if day.cities.length %}
+            <span class="where">{{ day.cities | join(" · ") }}</span>
+          {%- endif %}
+        </header>
+        <ol>
+          {%- for event in day.events %}
+            <li class="{{ event.class | join(" ") }}">
+              <span class="time">
+                {%- if event.since %}
+                  <time class="since" datetime="{{ event.since.at }}">
+                    {{- event.since.text -}}
+                  </time>
+                {%- endif %}
+                {%- if event.until %}
+                  <time class="until" datetime="{{ event.until.at }}">
+                    {{- event.until.text -}}
+                  </time>
+                {%- endif %}
+              </span>
+              <span class="line">
+                {%- for seg in event.segments %}
+                  <span class="{{ seg.class | join(" ") }}"></span>
+                {%- endfor %}
+                {%- if event.joint -%}
+                  <b class="joint {{ event.joint }}"></b>
+                {%- endif %}
+              </span>
+              <span class="body">
+                {%- if event.body %}
+                  <span class="chip kind">{{ event.body.category }}</span>
+                  <div class="desc">
+                    {%- if event.body.name %}
+                      <div class="head">
+                        <span class="name">{{ event.body.name }}</span>
+                      </div>
+                    {%- endif %}
+                    {%- if event.body.meta.length %}
+                      <p class="meta">
+                        {%- for item in event.body.meta %}
+                          {%- if not loop.first %}
+                            <span class="sep">&bull;</span>
+                          {%- endif %}
+                          {%- if item.fare -%}
+                            <span class="fare">&yen;{{ item.text }}</span>
+                          {%- else -%}
+                            <span>{{ item.text }}</span>
+                          {%- endif %}
+                        {%- endfor %}
+                      </p>
+                    {%- endif %}
+                    {%- if event.body.sidequest %}
+                      <p class="with">
+                        <span class="sidequest">sidequest</span>
+                        {%- for person in event.body.people %}
+                          <span class="chip person {{ person | lower }}">
+                            {{- person -}}
+                          </span>
+                        {%- endfor %}
+                      </p>
+                    {%- endif %}
+                    {%- if event.body.notes %}
+                      <div class="notes">{{ event.body.notes | safe }}</div>
+                    {%- endif %}
+                  </div>
+                {%- endif %}
+              </span>
+            </li>
+          {%- endfor %}
+        </ol>
+      </section>
+    {%- endfor %}
+  </article>
+{%- endmacro %}
