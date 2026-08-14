@@ -1,11 +1,11 @@
 ---
-title: "Games: Owned"
+title: "Games: Copies"
 ---
 
 {% include "media/navbar.njk" %}
 {% include "games/navbar.njk" %}
 
-{% for system, games in fetch.games.owned
+{% for system, games in fetch.games.copies
   | sort(false, false, "system.date")
   | groupby("system.slug")
   %}

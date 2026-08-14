@@ -1,9 +1,9 @@
 import Fetch from "@11ty/eleventy-fetch";
 
 const url = {
-  owned:  new URL("https://api.zakhary.dev/media/games/owned"),
-  system: new URL("https://api.zakhary.dev/media/games/system"),
-  extras: new URL("https://api.zakhary.dev/media/games/extras"),
+  copies:  new URL("https://api.zakhary.dev/media/games/copies"),
+  systems: new URL("https://api.zakhary.dev/media/games/systems"),
+  extras:  new URL("https://api.zakhary.dev/media/games/extras"),
 };
 
 const opts = {
@@ -17,16 +17,16 @@ export default async () => {
     { type: "json" },
   );
   return {
-    owned: (await Fetch(url.owned.href, opts))
+    copies: (await Fetch(url.copies.href, opts))
       .map(item => ({
         ...item,
-        title: item.game.title,
+        title: item.title ?? item.game.map(game => game.title).join(" + "),
         system: {
           slug: item.system,
           ...plat[item.system],
         },
       })),
-    system: (await Fetch(url.system.href, opts))
+    systems: (await Fetch(url.systems.href, opts))
       .map(item => ({
         ...item,
         system: {
