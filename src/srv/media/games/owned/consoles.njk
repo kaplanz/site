@@ -1,5 +1,5 @@
 ---
-title: "Games: Extras"
+title: "Games: Consoles"
 ---
 
 {% include "media/navbar.njk" %}
@@ -15,15 +15,15 @@ title: "Games: Extras"
     </tr>
   </thead>
   <tbody>
-    {% for item in fetch.games.extras
+    {% for item in fetch.games.consoles
       | sort(false, false, "title")
       | sort(false, false, "model")
-      | sort(false, false, "system.date")
+      | sort(false, false, "platform.date")
       %}
       <tr>
         <td class="icon">
-          {% if item.system.name -%}
-            <img src="https://cdn.zakhary.dev/img/icons/retcon/{{ item.system.slug }}.png"/>
+          {% if item.platform.name -%}
+            <img src="https://cdn.zakhary.dev/img/icons/retcon/{{ item.platform.slug }}.png"/>
           {%- endif %}
         </td>
         <td class="region">{{ item.region | flag }}</td>

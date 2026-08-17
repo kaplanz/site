@@ -1,22 +1,22 @@
 ---
-title: "Games: Copies"
+title: "Games: Releases"
 ---
 
 {% include "media/navbar.njk" %}
 {% include "games/navbar.njk" %}
 
-{% for system, games in fetch.games.copies
-  | sort(false, false, "system.date")
-  | groupby("system.slug")
+{% for platform, games in fetch.games.releases
+  | sort(false, false, "platform.date")
+  | groupby("platform.slug")
   %}
   <section>
-    <h3 id={{ system }} class="system">
-      <a class="anchor" href="#{{ system }}">
+    <h3 id={{ platform }} class="platform">
+      <a class="anchor" href="#{{ platform }}">
         <img
           class="icon"
-          src="https://cdn.zakhary.dev/img/icons/retcon/{{ system }}.png"
+          src="https://cdn.zakhary.dev/img/icons/retcon/{{ platform }}.png"
         />
-        <span>{{ games[0].system.name }}</span>
+        <span>{{ games[0].platform.name }}</span>
       </a>
     </h3>
 
@@ -45,7 +45,7 @@ title: "Games: Copies"
 
 <style>{% include "style/media.css" %}</style>
 <style>
-  h3.system {
+  h3.platform {
     a {
       display: flex;
       align-items: center;
@@ -72,7 +72,7 @@ title: "Games: Copies"
       color: oklch(from currentColor l c h / .6);
     }
 
-    .system {
+    .platform {
       font: .8em var(--mono);
       background: oklch(from var(--teal) l c h / .4);
       border-radius: 4px;

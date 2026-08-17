@@ -1,10 +1,6 @@
 import Fetch from "@11ty/eleventy-fetch";
 
-const url = {
-  copies:  new URL("https://api.zakhary.dev/media/games/copies"),
-  systems: new URL("https://api.zakhary.dev/media/games/systems"),
-  extras:  new URL("https://api.zakhary.dev/media/games/extras"),
-};
+const url = new URL("https://api.zakhary.dev/media/games/owned");
 
 const opts = {
   duration: "0s",
@@ -16,31 +12,22 @@ export default async () => {
     "https://cdn.zakhary.dev/usr/share/media/games/platform.json",
     { type: "json" },
   );
+  const owned = (await Fetch(url.href, opts))
+    .map(item => ({
+      ...item,
+      platform: {
+        slug: item.platform,
+        ...plat[item.platform],
+      },
+    }));
+  const kind = want => owned.filter(item => item.kind === want);
   return {
-    copies: (await Fetch(url.copies.href, opts))
+    releases: kind("release")
       .map(item => ({
         ...item,
         title: item.title ?? item.game.map(game => game.title).join(" + "),
-        system: {
-          slug: item.system,
-          ...plat[item.system],
-        },
       })),
-    systems: (await Fetch(url.systems.href, opts))
-      .map(item => ({
-        ...item,
-        system: {
-          slug: item.system,
-          ...plat[item.system],
-        },
-      })),
-    extras: (await Fetch(url.extras.href, opts))
-      .map(item => ({
-        ...item,
-        system: {
-          slug: item.system,
-          ...plat[item.system],
-        },
-      })),
+    consoles: kind("console"),
+    extras: kind("extra"),
   };
 };
