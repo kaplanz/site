@@ -5,27 +5,53 @@ title: Games
 {% include "media/navbar.njk" %}
 {% include "games/navbar.njk" %}
 
+{% set icons = { start: "⏵", stop: "⏸", done: "■" } %}
+
 <table class="plain">
   <thead>
     <tr>
       <th></th>
       <th>Title</th>
-      <th>Status</th>
-      <th>Date</th>
+      <th>Played</th>
     </tr>
   </thead>
   <tbody>
     {% for game in games %}
-      <tr>
+      <tr
+        onclick="document.getElementById('{{ game.id }}').showModal()"
+      >
         <td class="icon">
           {% if game.platform -%}
             <img src="https://cdn.zakhary.dev/img/icons/retcon/{{ game.platform }}.png"/>
           {%- endif %}
         </td>
         <td class="title">{{ game.title }}</td>
-        {% set log = game.logs | last %}
-        <td class="state">{{ log.kind }}</td>
-        <td class="date">{{ (log.date * 1000) | since }}</td>
+        <td class="">
+          {% set date = (game.logs | last).date * 1000 %}
+          <time
+            datetime="{{ date | dated }}"
+            title="{{ date | dated }}"
+          >{{ date | dated("DD MMM YYYY") }}</time>
+        </td>
+        <dialog id="{{ game.id }}">
+          <header>
+            {% if game.platform -%}
+              <img src="https://cdn.zakhary.dev/img/icons/retcon/{{ game.platform }}.png"/>
+            {%- endif %}
+            <span class="title">{{ game.title }}</span>
+          </header>
+          <ul>
+            {% for log in game.logs | sort(false, false, "date") %}
+              <li>
+                <span>{{ icons[log.kind] }}</span>
+                <time
+                  datetime="{{ (log.date * 1000) | dated }}"
+                  title="{{ (log.date * 1000) | dated }}"
+                >{{ (log.date * 1000) | dated("DD MMM YYYY") }}</time>
+              </li>
+            {% endfor %}
+          </ul>
+        </dialog>
       </tr>
     {% endfor %}
   </tbody>
@@ -38,21 +64,31 @@ title: Games
       vertical-align: middle;
     }
 
-    .icon > img {
-      corner-radius: 0;
+    tr {
+      cursor: pointer;
     }
+  }
 
-    .title {
-      font-family: var(--serif);
-    }
+  ul {
+    list-style: none;
+  }
 
-    .state {
-      font: .8em var(--mono);
-    }
+  dialog > header {
+    display: flex;
+    gap: 1em;
+    place-items: center;
+  }
 
-    .date {
-      font: .8em var(--mono);
-      color: oklch(from currentColor l c h / .6);
-    }
+  time {
+    font: .8em var(--mono);
+    color: oklch(from currentColor l c h / .6);
+  }
+
+  .title {
+    font-family: var(--serif);
+  }
+
+  .icon > img {
+    corner-radius: 0;
   }
 </style>
