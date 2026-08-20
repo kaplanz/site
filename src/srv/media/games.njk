@@ -15,15 +15,15 @@ title: Games
     </tr>
   </thead>
   <tbody>
-    {% for game in fetch.media.game %}
-      {% set log = game.logs | last %}
+    {% for game in games %}
       <tr>
         <td class="icon">
-          {% if game.system -%}
-            <img src="https://cdn.zakhary.dev/img/icons/retcon/{{ game.system }}.png"/>
+          {% if game.platform -%}
+            <img src="https://cdn.zakhary.dev/img/icons/retcon/{{ game.platform }}.png"/>
           {%- endif %}
         </td>
         <td class="title">{{ game.title }}</td>
+        {% set log = game.logs | last %}
         <td class="state">{{ log.kind }}</td>
         <td class="date">{{ (log.date * 1000) | since }}</td>
       </tr>

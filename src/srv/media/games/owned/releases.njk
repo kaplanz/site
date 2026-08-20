@@ -4,6 +4,7 @@ title: "Games: Releases"
 
 {% include "media/navbar.njk" %}
 {% include "games/navbar.njk" %}
+{% include "games/owned/navbar.njk" %}
 
 {% for platform, games in fetch.games.releases
   | sort(false, false, "platform.date")
