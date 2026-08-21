@@ -25,7 +25,7 @@ export default async () => {
     releases: kind("release")
       .map(item => ({
         ...item,
-        title: item.title ?? item.game.map(game => game.title).join(" + "),
+        title: item.title ?? item.game.map(game => game.title).join(" / "),
       })),
     consoles: kind("console"),
     extras: kind("extra"),

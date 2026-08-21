@@ -4,42 +4,25 @@ title: Books
 
 {% include "media/navbar.njk" %}
 
-<header>
-  <fieldset>
-    <a href="/media/books/read">Timeline</a>
-    <a href="/media/books/live">Reading</a>
-    <a href="/media/books/next">Backlog</a>
-  </fieldset>
-</header>
 <section class="books">
-  {% for year, books in
-    fetch.books.read | groupby("year") | dictsort | reverse
-  %}
+  {% for year, list in books.read | groupby("year") | dictsort | reverse %}
     <details open>
       <summary>
         <h2>{{ year }}</h2>
-        <span>({{ books | length }} books)</span>
+        <span>({{ list | length }} books)</span>
       </summary>
       <ul>
-        {% for item in books %}
+        {% for book in list %}
           <li class="book">
             <div class="cover">
               <img
-                src="{{ item.book.image.url }}"
-                alt="Cover artwork for {{ item.book.title }}"
-                title="{{ item.book.title }}"
+                src="{{ book.item.cover }}"
+                alt="Cover artwork for {{ book.item.title }}"
+                title="{{ book.item.title }}"
               />
             </div>
             <span>
-              <b>{{ item.book.title }}</b>
-              <span> by </span>
-              <em>
-                {{- item.book.contributions
-                  | field("author")
-                  | field("name")
-                  | join(", ")
-                -}}
-              </em>
+              <b>{{ book.item.title }}</b>
             </span>
           </li>
         {% endfor %}
