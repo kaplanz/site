@@ -2,5 +2,5 @@
   { "name": "home",  "path": "/"      },
   { "name": "about", "path": "/about" },
   { "name": "now",   "path": "/now"   },
-  { "name": "media", "path": "/media" }
+  { "name": "media", "path": "/media/" }
 ]
