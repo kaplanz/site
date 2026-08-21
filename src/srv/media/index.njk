@@ -8,30 +8,27 @@ about: >
 
 <p>{{ about }}</p>
 
-{% set feed = [] %}
-{% for kind in ["book", "film", "game", "link", "show"] %}
-  {% if fetch.media[kind] %}
-    {% for item in fetch.media[kind] | take(5) %}
-      {%- set _ = feed.push(item) -%}
-    {% endfor %}
-  {% endif %}
-{% endfor %}
-
 <ul class="feed">
-  {% for item in feed | sort(reverse=true, attribute="created") %}
+  {% for item in media | sort(reverse=true, attribute="meta.created") %}
     <li>
-      <a class="kind {{ item.kind }}" href="/media/{{ item.kind }}s">{{ item.kind }}</a>
+      <a
+        class="kind {{ item.kind }}"
+        href="/media/{{ item.kind }}s"
+      >{{ item.kind }}</a>
       <span class="title">
         {%- if item.kind == "link" -%}
-          <a href="{{ item.url }}" target="_blank">{{ item.title or item.url }}</a>
+          <a
+            href="{{ item.item.url }}"
+            target="_blank"
+          >{{ item.item.title or item.item.url }}</a>
         {%- else -%}
-          {{ item.title }}
+          {{ item.item.title }}
         {%- endif -%}
       </span>
       <time
-        datetime="{{ item.created | dated }}"
-        title="{{ item.created | dated }}"
-      >{{ item.created | since }}</time>
+        datetime="{{ (item.created * 1000) | dated }}"
+        title="{{ (item.created * 1000) | dated }}"
+      >{{ (item.created * 1000) | since }}</time>
     </li>
   {% endfor %}
 </ul>
