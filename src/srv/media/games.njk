@@ -18,14 +18,14 @@ title: Games
   <tbody>
     {% for game in games %}
       <tr
-        onclick="document.getElementById('{{ game.id }}').showModal()"
+        onclick="document.getElementById('{{ game.item.id }}').showModal()"
       >
         <td class="icon">
-          {% if game.platform -%}
-            <img src="https://cdn.zakhary.dev/img/icons/retcon/{{ game.platform }}.png"/>
+          {% if game.item.platform -%}
+            <img src="https://cdn.zakhary.dev/img/icons/retcon/{{ game.item.platform }}.png"/>
           {%- endif %}
         </td>
-        <td class="title">{{ game.title }}</td>
+        <td class="title">{{ game.item.title }}</td>
         <td class="">
           {% set date = (game.logs | last).date * 1000 %}
           <time
@@ -33,12 +33,12 @@ title: Games
             title="{{ date | dated }}"
           >{{ date | dated("DD MMM YYYY") }}</time>
         </td>
-        <dialog id="{{ game.id }}">
+        <dialog id="{{ game.item.id }}">
           <header>
-            {% if game.platform -%}
-              <img src="https://cdn.zakhary.dev/img/icons/retcon/{{ game.platform }}.png"/>
+            {% if game.item.platform -%}
+              <img src="https://cdn.zakhary.dev/img/icons/retcon/{{ game.item.platform }}.png"/>
             {%- endif %}
-            <span class="title">{{ game.title }}</span>
+            <span class="title">{{ game.item.title }}</span>
           </header>
           <ul>
             {% for log in game.logs | sort(false, false, "date") %}

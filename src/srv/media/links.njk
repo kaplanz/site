@@ -13,11 +13,11 @@ article: >
 
 <table class="plain">
   <tbody>
-    {% for link in fetch.media.link %}
+    {% for link in fetch.media.links %}
       <tr>
         <td class="title">
-          <a href="{{ link.url }}" target="_blank">
-            {{- (link.title or link.url) | safe -}}
+          <a href="{{ link.item.url }}" target="_blank">
+            {{- (link.item.title or link.item.url) | safe -}}
           </a>
         </td>
         <td class="tags">
@@ -29,9 +29,9 @@ article: >
         </td>
         <td class="date">
           <time
-            datetime="{{ link.created | dated }}"
-            title="{{ link.created | dated }}"
-          >{{ link.created | since }}</time>
+            datetime="{{ link.meta.created | dated }}"
+            title="{{ link.meta.created | dated }}"
+          >{{ link.meta.created | since }}</time>
         </td>
       </tr>
     {% endfor %}

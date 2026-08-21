@@ -16,10 +16,14 @@ export default async () => Object.groupBy(
     tags,
   }) => ({
     kind,
-    ...item,
-    created: new Date(meta.created * 1000),
-    logs: logs ?? [],
-    tags: tags ?? [],
+    item,
+    meta: {
+      ...meta,
+      created: new Date(meta.created * 1000),
+      updated: new Date(meta.updated * 1000),
+    },
+    logs,
+    tags,
   })),
-  item => item.kind,
+  item => `${item.kind}s`,
 );
