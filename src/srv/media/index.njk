@@ -25,10 +25,11 @@ about: >
           {{ item.item.title }}
         {%- endif -%}
       </span>
+      {% set date = item.meta.created %}
       <time
-        datetime="{{ (item.created * 1000) | dated }}"
-        title="{{ (item.created * 1000) | dated }}"
-      >{{ (item.created * 1000) | since }}</time>
+        datetime="{{ date | dated }}"
+        title="{{ date | dated }}"
+      >{{ date | since }}</time>
     </li>
   {% endfor %}
 </ul>
