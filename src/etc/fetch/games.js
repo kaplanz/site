@@ -13,21 +13,29 @@ export default async () => {
     { type: "json" },
   );
   const owned = (await Fetch(url.href, opts))
-    .map(item => ({
-      ...item,
-      platform: {
-        slug: item.platform,
-        ...plat[item.platform],
-      },
-    }));
-  const kind = want => owned.filter(item => item.kind === want);
-  return {
-    releases: kind("release")
-      .map(item => ({
+    .map(({ kind, item, games }) => ({
+      kind,
+      item: {
         ...item,
-        title: item.title ?? item.game.map(game => game.title).join(" / "),
+        platform: {
+          slug: item.platform,
+          ...plat[item.platform],
+        },
+      },
+      games,
+    }));
+  const filter = want => owned.filter(owned => owned.kind === want);
+  return {
+    releases: filter("release")
+      .map(owned => ({
+        ...owned,
+        item: {
+          ...owned.item,
+          title: owned.item.title
+            ?? owned.games.map(game => game.title).join(" / "),
+        },
       })),
-    consoles: kind("console"),
-    extras: kind("extra"),
+    consoles: filter("console"),
+    extras: filter("extra"),
   };
 };

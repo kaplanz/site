@@ -7,8 +7,8 @@ title: "Games: Releases"
 {% include "games/owned/navbar.njk" %}
 
 {% for platform, games in fetch.games.releases
-  | sort(false, false, "platform.date")
-  | groupby("platform.slug")
+  | sort(false, false, "item.platform.date")
+  | groupby("item.platform.slug")
   %}
   <section>
     <h3 id={{ platform }} class="platform">
@@ -17,7 +17,7 @@ title: "Games: Releases"
           class="icon"
           src="https://cdn.zakhary.dev/img/icons/retcon/{{ platform }}.png"
         />
-        <span>{{ games[0].platform.name }}</span>
+        <span>{{ games[0].item.platform.name }}</span>
       </a>
     </h3>
 
@@ -31,12 +31,12 @@ title: "Games: Releases"
       </thead>
       <tbody>
         {% for game in games
-        | sort(false, false, "title")
+        | sort(false, false, "item.title")
         %}
           <tr>
-            <td class="region">{{ game.region | flag }}</td>
-            <td class="title">{{ game.title }}</td>
-            <td class="revision">{{ game.revision }}</td>
+            <td class="region">{{ game.item.region | flag }}</td>
+            <td class="title">{{ game.item.title }}</td>
+            <td class="revision">{{ game.item.revision }}</td>
           </tr>
         {% endfor %}
       </tbody>

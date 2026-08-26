@@ -16,25 +16,25 @@ title: "Games: Consoles"
     </tr>
   </thead>
   <tbody>
-    {% for item in fetch.games.consoles
-      | sort(false, false, "title")
-      | sort(false, false, "model")
-      | sort(false, false, "platform.date")
+    {% for owned in fetch.games.consoles
+      | sort(false, false, "item.title")
+      | sort(false, false, "item.model")
+      | sort(false, false, "item.platform.date")
       %}
       <tr>
         <td class="icon">
-          {% if item.platform.name -%}
-            <img src="https://cdn.zakhary.dev/img/icons/retcon/{{ item.platform.slug }}.png"/>
+          {% if owned.item.platform.name -%}
+            <img src="https://cdn.zakhary.dev/img/icons/retcon/{{ owned.item.platform.slug }}.png"/>
           {%- endif %}
         </td>
-        <td class="region">{{ item.region | flag }}</td>
+        <td class="region">{{ owned.item.region | flag }}</td>
         <td class="title">
-          {{ item.title }}
-          {% if item.variant -%}
-            <span class="variant">({{ item.variant }})</span>
+          {{ owned.item.title }}
+          {% if owned.item.variant -%}
+            <span class="variant">({{ owned.item.variant }})</span>
           {%- endif %}
         </td>
-        <td class="model">{{ item.model }}</td>
+        <td class="model">{{ owned.item.model }}</td>
       </tr>
     {% endfor %}
   </tbody>
