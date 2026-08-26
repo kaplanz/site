@@ -31,7 +31,7 @@ title: "Games: Extras"
         <td class="title">
           {{ owned.item.title }}
           {% if owned.item.variant -%}
-            <span class="variant">({{ owned.item.variant }})</span>
+            <span class="variant">{{ owned.item.variant }}</span>
           {%- endif %}
         </td>
         <td class="model">{{ owned.item.model }}</td>
@@ -56,6 +56,7 @@ title: "Games: Extras"
     }
 
     .variant {
+      display: block;
       font-family: var(--serif);
       color: oklch(from currentColor l c h / .6);
     }
