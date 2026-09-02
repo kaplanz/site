@@ -20,20 +20,25 @@ title: Games
       <tr
         onclick="document.getElementById('{{ game.item.id }}').showModal()"
       >
-        <td class="icon">
+        <td>
           {% if game.item.platform -%}
-            <img src="https://cdn.zakhary.dev/img/icons/retcon/{{ game.item.platform }}.png"/>
+            <img
+              src="https://cdn.zakhary.dev/img/icons/retcon/{{ game.item.platform }}.png"
+              class="icon"
+            />
           {%- endif %}
         </td>
-        <td class="title">{{ game.item.title }}</td>
-        <td class="">
+        <td>
+          <span class="title">{{ game.item.title }}</span>
+        </td>
+        <td>
           {% set date = (game.logs | last).date * 1000 %}
           <time
             datetime="{{ date | dated }}"
             title="{{ date | dated }}"
           >{{ date | dated("DD MMM YYYY") }}</time>
         </td>
-        <dialog id="{{ game.item.id }}">
+        <dialog id="{{ game.item.id }}" closedby="any">
           <header>
             {% if game.item.platform -%}
               <img src="https://cdn.zakhary.dev/img/icons/retcon/{{ game.item.platform }}.png"/>
@@ -69,14 +74,14 @@ title: Games
     }
   }
 
-  ul {
-    list-style: none;
-  }
-
   dialog > header {
     display: flex;
     gap: 1em;
     place-items: center;
+
+    ul {
+      list-style: none;
+    }
   }
 
   time {
@@ -84,11 +89,11 @@ title: Games
     color: oklch(from currentColor l c h / .6);
   }
 
-  .title {
-    font-family: var(--serif);
+  img {
+    corner-radius: 0;
   }
 
-  .icon > img {
-    corner-radius: 0;
+  span.title {
+    font-family: var(--serif);
   }
 </style>
